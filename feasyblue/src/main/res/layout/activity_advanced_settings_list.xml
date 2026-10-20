@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        android:background="@color/black"
+        android:layout_width="match_parent"
+        android:layout_marginTop="45dp"
+        android:layout_height="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" >
+
+        <TextView
+            android:id="@+id/toolbarTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textSize="18sp"
+            android:layout_gravity="center"
+            android:textColor="@color/white" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <Button
+        android:id="@+id/sppAutoConnectTestButton"
+        style="@style/setting_fragment_btn"
+        android:text="@string/spp_auto_connect_test"
+        app:layout_constraintEnd_toStartOf="@+id/guideline9"
+        app:layout_constraintStart_toStartOf="@+id/guideline8"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"/>
+
+    <Button
+        android:id="@+id/bleAutoConnectTestButton"
+        style="@style/setting_fragment_btn"
+        android:text="@string/ble_auto_connect_test"
+        app:layout_constraintEnd_toStartOf="@+id/guideline9"
+        app:layout_constraintStart_toStartOf="@+id/guideline8"
+        app:layout_constraintTop_toBottomOf="@+id/sppAutoConnectTestButton"/>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:layout_marginTop="40dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toStartOf="@+id/guideline9"
+        app:layout_constraintStart_toStartOf="@+id/guideline8"
+        app:layout_constraintTop_toBottomOf="@+id/bleAutoConnectTestButton">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/light_grey"/>
+
+        <RelativeLayout
+            android:id="@+id/sdp_service_rl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/sdp_service_atv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="@string/sdp_service"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <com.github.iielse.switchbutton.SwitchView
+                android:id="@+id/sdp_service_switch_view"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/custom_uuid128_atv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="UUID:"
+                android:layout_centerVertical="true"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+        </RelativeLayout>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/custom_uuid8_et"
+                android:layout_width="0dp"
+                android:layout_height="35dp"
+                android:layout_weight="1.6"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/edit_background1"
+                android:maxLength="8"
+                android:text="00001101"
+                android:inputType="text"
+                android:digits="0123456789abcdefABCDEF"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"/>
+
+            <EditText
+                android:id="@+id/custom_uuid4_et1"
+                android:layout_width="0dp"
+                android:layout_height="35dp"
+                android:layout_weight="0.8"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/edit_background1"
+                android:maxLength="4"
+                android:text="0000"
+                android:inputType="text"
+                android:digits="0123456789abcdefABCDEF"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"/>
+
+            <EditText
+                android:id="@+id/custom_uuid4_et2"
+                android:layout_width="0dp"
+                android:layout_height="35dp"
+                android:layout_weight="0.8"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/edit_background1"
+                android:maxLength="4"
+                android:text="1000"
+                android:inputType="text"
+                android:digits="0123456789abcdefABCDEF"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"/>
+
+            <EditText
+                android:id="@+id/custom_uuid4_et3"
+                android:layout_width="0dp"
+                android:layout_height="35dp"
+                android:layout_weight="0.8"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/edit_background1"
+                android:maxLength="4"
+                android:text="8000"
+                android:inputType="text"
+                android:digits="0123456789abcdefABCDEF"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="-"/>
+
+            <EditText
+                android:id="@+id/custom_uuid12_et"
+                android:layout_width="0dp"
+                android:layout_height="35dp"
+                android:layout_weight="2.2"
+                android:layout_gravity="center_vertical"
+                android:background="@drawable/edit_background1"
+                android:maxLength="12"
+                android:text="00805F9B34FB"
+                android:inputType="text"
+                android:digits="0123456789abcdefABCDEF"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/restore_uuid_acb"
+                android:text="@string/clear_uuid"
+                android:textAllCaps="false"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1.5"
+                android:layout_alignParentRight="true"/>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.95" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

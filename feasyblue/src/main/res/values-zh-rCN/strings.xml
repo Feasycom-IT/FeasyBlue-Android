@@ -1,0 +1,607 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">FeasyBlue</string>
+
+    <string name="ok">确定</string>
+    <string name="close">关闭</string>
+    <string name="confirm">确认</string>
+
+    <string name="user_agreement">FeasyBlue用户使用协议</string>
+    <string name="privacy_agreement">FeasyBlue隐私政策</string>
+    <string name="permission_location_denied">定位权限是扫描蓝牙设备所必须的权限</string>
+    <string name="permission_bluetooth_denied">蓝牙权限是扫描蓝牙设备所必须的权限</string>
+    <string name="permission_write_prompt">下载固件并导入到外部存储目录中需要访问外部存储的权限。</string>
+    <string name="to_setting_open_permission">您需要去应用程序设置当中手动开启权限</string>
+
+    <string name="bluetooth_off">蓝牙已禁用。</string>
+    <string name="gps_off">位置已禁用。</string>
+    <string name="gps_more">更多</string>
+    <string name="gps_more_title">定位服务</string>
+    <string name="gps_more_text_bluetooth">您的手机可能需要启用定位服务才能扫描Bluetooth LE设备。如果您确定范围内有正在广播
+                的设备并且您在此处看不到它们，请启用它。如果可以扫描出设备,请忽略它。</string>
+    <string name="gps_more_text_wifi">您的手机可能需要启用定位服务才能自动识别已连接 WiFi 的SSID。如果您连接了 WiFi 却无法识别SSID,那么请启用它,如果可以识别已连接 WiFi 的SSID,请忽略它。</string>
+    <string name="enable">打开</string>
+
+
+    <!--footer-->
+    <string name="communication">通讯</string>
+    <string name="setting">设置</string>
+    <string name="about">关于</string>
+    <string name="product">产品</string>
+    <string name="forum">论坛</string>
+    <string name="aboutcompany">公司介绍</string>
+    <!--search device activity-->
+    <string name="search">搜索</string>
+    <string name="searching">搜索中&#8230;</string>
+    <string name="searched">搜索完毕</string>
+    <string name="rssi">信号</string>
+    <string name="mac">地址: </string>
+    <string name="paired">[已配对]</string>
+    <string name="sort">排序</string>
+    <string name="filter">过滤</string>
+    <string name="filter_by_rssi">RSSI过滤阈值:</string>
+    <string name="filter_by_name">名字过滤</string>
+    <string name="minimum_rssi">过滤阈值</string>
+
+
+    <!--throughput activity-->
+    <string name="clear">清除</string>
+    <string name="receive1">累计接收: %1$d 字节</string>
+    <string name="receive">累计接收: %1$d 字节 %2$d 包</string>
+    <string name="send1">累计发送: %1$d 字节</string>
+    <string name="send">累计发送: %1$d 字节 %2$d 包</string>
+    <!--<string name="byt">字节</string>
+    <string name="packge">包 </string>-->
+    <string name="sendFile">发送文件</string>
+    <string name="stopSend">停止发送</string>
+    <string name="sendPackage">发送</string>
+    <string name="intervalSend">循环发送</string>
+    <string name="connected">app与设备已连接</string>
+    <string name="through_connected">已连接</string>
+    <string name="disconnected">app与设备已断开连接</string>
+    <string name="through_disconnected">已断开</string>
+    <string name="connecting">连接中</string>
+    <string name="default_interval_send_timer">100</string>
+    <string name="openSendFileError">文件选择失败</string>
+    <string name="stop">停止</string>
+    <string name="transmissionConfiguration">传输配置</string>
+    <string name="serviceInfo">服务信息</string>
+    <string name="characteristicInfo">特征信息</string>
+    <string name="deviceInfo">设备信息</string>
+    <string name="modelNumber">型号</string>
+    <string name="manufacturerName">制造商</string>
+    <string name="serialNumber">序列号(设备地址)</string>
+    <string name="hardwareRevision">硬件版本</string>
+    <string name="softwareRevision">软件版本</string>
+    <string name="save">保存</string>
+    <string name="advData">广播数据</string>
+    <string name="byteString">%d 字节</string>
+    <string name="intervalHint">发送间隔</string>
+    <string name="selectFile">选择文件</string>
+    <string name="selectedFile">已选择文件：%s</string>
+    <string name="testFile">测试文件</string>
+    <string name="btnSends">发送</string>
+    <string name="dianhuazixun">电话咨询</string>
+
+    <!-- SelectFileActivity -->
+    <string name="custom_size">自定义大小</string>
+    <string name="shortcut_options">快捷选项</string>
+    <string name="send_file">发送文件</string>
+
+    <!-- Heand -->
+    <string name="back">返回</string>
+
+
+    <!--关于-->
+    <string name="company">公司</string>
+    <!--TODO 深圳市飞易通科技有限公司 -->
+    <string name="company_name">深圳市飞易通科技有限公司</string>
+    <string name="company_deta">飞易通是一家专注于物联网无线模块和产品的国家级高新技术企业。经过十几年无线通讯行业的技术沉淀，飞易通在为客户提供低风险产品开发、降低系统集成成本和缩短产品开发周期方面拥有丰富的经验和强大支持能力。目前飞易通产品远销欧美日韩印等国家，出货客户已有几千家以上，累计出货量达到上亿个。
+        \n\n创新的物联网产品——飞易通以技术创新为核心驱动力，提供多样化的特色产品，包括蓝牙模块、Wi-Fi蓝牙组合模块、CAT-M模块、BLE信标、网关、蓝牙/Wi-Fi适配器、天线及RFID系列等。此外，飞易通还为这些硬件产品配套提供物联网云服务（飞易云）、支持安卓和iOS的APP及SDK等解决方案。</string>
+    <!--TODO 长沙市飞易通科技有限公司 -->
+<!--    <string name="company_name">长沙市飞易通科技有限公司</string>-->
+    <string name="tel_number">+86-0755-27924639</string>
+    <string name="tel">电话</string>
+    <string name="web">网址</string>
+    <string name="website">公司官网</string>
+    <string name="web_url">www.feasycom.com</string>
+    <string name="mail">邮件咨询</string>
+    <string name="mail_addr">support@feasycom.com</string>
+    <string name="wx">微信</string>
+
+    <string name="qr_success">保存成功，请到相册查看。</string>
+    <string name="qr_failed">保存失败。</string>
+
+
+    <string name="userAndPrivacyAgreement">用户协议与隐私政策提示</string>
+    <string name="userAndPrivacyAgreementPrefix">您可通过阅读完整的</string>
+    <string name="userAndPrivacyAgreementSuffix">来了解详细信息。</string>
+    <string name="userAgreement">用户协议</string>
+    <string name="privacyAgreement">隐私协议</string>
+    <string name="detail">详情</string>
+    <string name="agree">同意</string>
+    <string name="disagree">不同意</string>
+    <string name="refuse">拒绝</string>
+
+    <!--SettingFragment-->
+    <string name="parameterDefining">参数修改</string>
+    <string name="settingTitle">设置</string>
+    <string name="connectTest">生产测试</string>
+    <string name="OTAUpgrade">空中升级</string>
+    <string name="open_sdp">开启SDP服务</string>
+    <string name="close_sdp">关闭SDP服务</string>
+
+    <string name="OTABatchUpgrade">批量空中升级</string>
+    <string name="wifi_setting_text">WiFi参数设置</string>
+    <string name="quickConnection">快速连接</string>
+    <string name="advanced_setting_text">高级设置</string>
+
+    <string name="refresh">刷新</string>
+    <string name="feedback">反馈</string>
+    <string name="feedbacktype">反馈类型</string>
+
+    <!--parameterModify-->
+    <string name="begin">开始</string>
+    <string name="deviceName">AT+NAME=</string>
+    <string name="pin">AT+PIN="</string>
+    <string name="baud">AT+BAUD=</string>
+    <string name="customizeSelect">自定义已选中</string>
+    <string name="customCommand">自定义指令</string>
+    <string name="customizeCommand">自定义指令 ∧</string>
+    <string name="customizeCommandHid">自定义指令 ∨</string>
+    <string name="none">缺少必要信息</string>
+    <string name="compeletCount">完成数</string>
+    <string name="name">设备名</string>
+    <string name="addr">地址</string>
+    <string name="openEngineSuccess">进入空中指令模式成功</string>
+    <string name="openEngineTimeOut">进入空中指令模式超时</string>
+    <string name="openEngineFailed">进入空中指令模式失败</string>
+    <string name="read">读取</string>
+    <string name="version">版本</string>
+    <string name="success">成功</string>
+    <string name="failed">失败</string>
+    <string name="timeout">超时</string>
+    <string name="same">相同</string>
+    <string name="modify">修改</string>
+    <string name="modifyComplete">修改完成</string>
+    <string name="password">密码</string>
+    <string name="modifyCompleteCount">修改完成数</string>
+    <string name="commandNull">AT指令为空</string>
+
+
+    <!--ota-->
+    <string name="pleaseSelectTheFirmware">请选择固件</string>
+    <string name="downloadFile">获取固件</string>
+    <string name="dfuName">DFU 名称</string>
+    <string name="openFile">选择固件</string>
+    <string name="selectedFirmware">已选固件</string>
+    <string name="notToChoose">无</string>
+    <string name="type">型号</string>
+    <string name="versionApp">APP版本</string>
+    <string name="bootLoader">BL版本</string>
+    <string name="module">目前模块</string>
+    <string name="firmware">升级固件</string>
+    <string name="toUpgrade">开始升级</string>
+    <string name="restoreTheFactorySettings">升级并恢复出厂设置</string>
+    <string name="checkModuleVersion">校验模块版本</string>
+    <string name="dfuIllegal">dfu文件非法</string>
+    <string name="waitingForUpdate">等待升级</string>
+    <string name="updating">升级中</string>
+    <string name="please_start_the_upgrade">请开始升级</string>
+    <string name="updateSuccess">升级成功</string>
+    <string name="updateFailed">升级失败</string>
+    <string name="nameNotMatch">设备型号不匹配</string>
+    <string name="versionIsLow">固件版本低</string>
+    <string name="versionIsHigh">设备版本高</string>
+    <string name="blIsHigh">设备引导版本高</string>
+    <string name="pairing_record">清除配对记录</string>
+    <string name="network_error">网络错误，请检查网络！</string>
+    <string name="down_file_error">网络或文件名错误</string>
+    <string name="down_file_finish">下载成功</string>
+    <string name="io_error">文件读取错误</string>
+    <string name="error">错误</string>
+    <string name="dfu_error">无效固件</string>
+    <string name="dfu_name_error">请把待升级的固件名修改成 “BTXXXX_” 这种格式</string>
+
+
+    <string name="permission_rationale_settings">您可以通过导航到应用程序设置来授予此权限。</string>
+    <string name="title_permission_required">需要权限</string>
+    <string name="external_storage_permission_required">下载固件并导入到外部存储目录中需要访问外部存储的权限。</string>
+    <string name="upgrade_percentage">%1$d</string>
+
+
+    <string name="feedback_title">反馈</string>
+    <string name="feedback_proposal">建议</string>
+    <string name="feedback_abnormal_function">功能异常</string>
+    <string name="feedback_interface_abnormality">界面异常</string>
+    <string name="feedback_cooperation">合作</string>
+    <string name="feedback_submit">提交</string>
+    <string name="feedback_data_error">请输入反馈问题。</string>
+    <string name="feedback_email">请输入您的邮箱</string>
+    <string name="feedback_email_erro">请输入正确的邮箱.</string>
+    <string name="feedback_status">正在发送反馈内容&#8230;</string>
+    <string name="feedback_success">反馈成功</string>
+    <string name="feedback_failure">反馈失败</string>
+    <string name="no_network">未接入互联网</string>
+    <string name="CRC">CRC32: %s</string>
+    <string name="export">导出</string>
+    <string name="percentage">100 %%</string>
+    <string name="sendByte">已发送：%1$d</string>
+    <string name="rate">平均速率：%1$.2f Bytes/s</string>
+    <string name="timer">时间：</string>
+    <string name="hide">点击隐藏</string>
+    <string name="file">文件</string>
+
+    <string name="description">问题描述</string>
+
+
+    <string name="number_upgrades">升级数： %1$d</string>
+    <string name="stop_batch_upgrade">停止批量升级</string>
+    <string name="start_batch_upgrade">开始批量升级</string>
+    <string name="batch_warning">已升级指定数量的设备，请点击右上角设置进行修改升级设备数量</string>
+    <string name="show_progress">显示进度条</string>
+
+    <string name="send_progress">%1$d %%</string>
+
+
+    <string name="digitsHex">0123456789abcdefABCDEF </string>
+
+    <string name="file_size_label">固件大小</string>
+
+    <string name="file_size">%1$d Bytes</string>
+    <string name="clear_cache_title">清除缓存</string>
+    <string name="reset">恢复出厂</string>
+    <string name="copy_all">拷贝日志</string>
+    <string name="delete_history">清除记录</string>
+    <string name="clear_cache">缓存清除后，可以进行下一批升级</string>
+
+    <string name="logcat_launch_error">参数错误，无法启动 Logcat</string>
+
+    <string name="logcat_notify_title">Logcat</string>
+    <string name="logcat_notify_content">点击进入《 %s 》日志调试界面</string>
+    <string name="logcat_notify_channel_name">Logcat 通知</string>
+    <string name="logcat_notify_channel_description">可用于查看当前应用程序的日志</string>
+
+    <string name="logcat_search_hint">请输入要查找的内容</string>
+
+    <string name="logcat_options_copy">复制日志</string>
+    <string name="logcat_options_share">分享日志</string>
+    <string name="logcat_options_delete">删除日志</string>
+    <string name="logcat_options_shield">屏蔽日志</string>
+
+    <string name="logcat_copy_succeed">日志复制成功</string>
+    <string name="logcat_copy_fail">日志复制失败</string>
+
+    <string name="logcat_capture">日志捕获开关</string>
+    <string name="logcat_save">保存日志</string>
+    <string name="logcat_level">日志等级过滤</string>
+    <string name="logcat_empty">清空日志</string>
+    <string name="logcat_close">关闭显示</string>
+
+    <string name="logcat_capture_pause">日志捕捉已暂停</string>
+
+    <string name="logcat_read_config_fail">读取屏蔽配置失败</string>
+
+    <string name="logcat_shield_succeed">添加屏蔽成功：</string>
+    <string name="logcat_shield_fail">添加屏蔽失败</string>
+
+    <string name="logcat_save_succeed">保存成功：</string>
+    <string name="logcat_save_fail">保存失败</string>
+
+    <string name="grant_permissions">下拉刷新授予权限</string>
+    <string name="unknown">状态未知</string>
+    <string name="init_fail">初始化失败</string>
+    <string name="device_no_ack">升级初始化时模块没有响应，请尝试重新连接并进行升级！</string>
+    <string name="upgrade_completed">升级完成</string>
+    <string name="upgrade_success">升级已成功完成。</string>
+    <string name="connect_failed">读取失败，套接字可能关闭或超时，读取ret:-1</string>
+    <string name="connect_fail">连接失败</string>
+    <string name="tips">提示</string>
+    <string name="file_access_permissions">请开启文件访问权限，否则无法正常使用升级功能！</string>
+    <string name="wifi_param_setting">wifi参数设置</string>
+    <string name="title_bluetooth">蓝牙配网</string>
+    <string name="title_ota">OTA 升级</string>
+    <string name="title_gateway">网关配置</string>
+    <string name="hint_gw">请输入GW</string>
+    <string name="hint_ip">请输入预设的静态IP地址</string>
+    <string name="hint_password">请输入Wi-Fi密码</string>
+    <string name="hint_ssid">请输入Wi-Fi名称</string>
+    <string name="hint_dns">请输入DNS</string>
+    <string name="hint_mask">请输入MASK</string>
+    <string name="network_config">开始配网</string>
+    <string name="ip">静态IP:</string>
+    <string name="ssid">SSID：</string>
+    <string name="open_bluetooth_tips">请开启蓝牙后重试</string>
+    <string name="connect_time_out">连接超时</string>
+    <string name="ssid_empty">请输入SSID后重试</string>
+    <string name="configure_network">正在配网&#8230;</string>
+    <string name="ip_error">静态IP输入有误，请重新输入</string>
+    <string name="gw_error">子网掩码输入有误，请重新输入</string>
+    <string name="mask_error">网关输入有误，请重新输入</string>
+    <string name="dns_error">DNS输入有误，请重新输入</string>
+    <string name="content">内容</string>
+    <string name="title">标题</string>
+    <string name="configure_result_success">配网成功</string>
+    <string name="configure_result_success_item">IP地址为: %1$s</string>
+    <string name="configure_result_failed">配网失败</string>
+    <string name="dfu_name">固件名称：</string>
+    <string name="hint_dfu">请输入升级固件的名称</string>
+    <string name="upgrade">升级</string>
+    <string name="module_ip">模块IP:</string>
+    <string name="module_version">模块版本:</string>
+    <string name="query_ip">查询IP</string>
+    <string name="query_version">查询版本号</string>
+    <string name="reset_tips">是否要将模块恢复出厂设置</string>
+    <string name="pin_cancel">取消</string>
+    <string name="reset_wait">正在恢复出厂设置，请耐心等待</string>
+    <string name="update_success">模块固件升级成功</string>
+    <string name="update_fail">模块固件升级失败</string>
+    <string name="upgrade_message">正在升级固件，请耐心等待</string>
+    <string name="ota_tips_dialog">OTA升级需要先完成蓝牙配网</string>
+    <string name="connect">连接</string>
+    <string name="send_config">正在发送配置信息&#8230;</string>
+    <string name="config_success">配置包发送完成</string>
+    <string name="config_failed">配置包发送失败</string>
+    <string name="topic_duplicated">失败：不可重复订阅同一主题</string>
+    <string name="disconnet">设备已断开蓝牙连接</string>
+    <string name="connectings">正在连接&#8230;</string>
+    <string name="connection_failed">连接失败</string>
+    <string name="connection_time_out">连接超时</string>
+    <string name="not_wifi_device">不是wifi设备</string>
+    <string name="start">开始</string>
+    <string name="success_count">成功数量: </string>
+    <string name="fail_count">失败数量: </string>
+    <string name="disconnect_s">秒后断开</string>
+    <string name="connect_s">秒后连接</string>
+    <string name="No_">第</string>
+    <string name="startTest">开始</string>
+    <string name="No_2">次</string>
+    <string name="failure">失败</string>
+    <string name="turn_on_bt">请打开蓝牙</string>
+    <string name="unknow_name">未命名</string>
+    <string name="unknow_address">未知的蓝牙地址</string>
+    <string name="unknow">未知</string>
+    <string name="spp_auto_connect_test">SPP自动连接测试</string>
+    <string name="ble_auto_connect_test">BLE自动连接测试</string>
+    <string name="permission_camera_record">相机和录音权限是拍照、相册、语音必须的权限</string>
+    <string name="developer_debug">开发者调试</string>
+    <string name="facp_switch">Facp</string>
+    <string name="debug_log">调试日志</string>
+    <string name="send_new_line">发送新行</string>
+    <string name="sdp_service">SDP服务</string>
+    <string name="input_custom_uuid">输入自定义UUID</string>
+    <string name="para_abnormality">待输入的字符串长度不为4</string>
+    <string name="input_eight_hex_string">输入8个hex</string>
+    <string name="input_four_hex_string">输入4个hex</string>
+    <string name="input_twelve_hex_string">输入12个hex</string>
+    <string name="password_error">密码错误</string>
+    <string name="enter_uuid_32bit">输入32位UUID</string>
+    <string name="uuid_not_checked">没有勾选Uuid</string>
+    <string name="size_cannot_zero">自定义大小不能为0或空</string>
+    <string name="log">日志</string>
+    <string name="cancel">取消</string>
+    <string name="is_delete_all_log">清空当前日志</string>
+    <string name="unable_to_share_file">无法分享文件</string>
+    <string name="clear_uuid">清除</string>
+    <string name="no_log">没有保存日志</string>
+    <string name="no_logcat_file">Logcat文件夹不存在</string>
+    <string name="copy_log_tips">升级信息已复制</string>
+    <string name="clear_device_record">清除记录</string>
+    <string name="error_open_fsc">打开发送新行开关，不能发送进入空中指令</string>
+    <string name="error_send_at">关闭发送新行开关，不能发送AT指令</string>
+    <string name="tcp_client_connected">TCP客户端已连接</string>
+    <string name="tcp_client_disconnected">TCP客户端已断开</string>
+    <string name="and">和</string>
+    <string name="userAndPrivacyResume"><![CDATA[感谢您信任并使用FeasyBlue，在您使用扫描蓝牙设备服务时，我们可能需要开启定位权限，读取位置信息、读取附近的设备来体验相关功能。 客户端在空中升级和批量空中升级页面下载固件、访问商城页面、反馈页面过程中需联网，联网产生的流量费请咨询当地运营商。 在您使用商城->在线咨询->拍照、相册、语音通话服务时，我们会申请开启相机、开启麦克风权限。当您在关于->保存二维码图片时会申请存储空间权限。 详细条款请参考《FeasyBlue用户使用协议》和《FeasyBlue隐私政策》。]]></string>
+    <string name="stopTest">停止</string>
+    <string name="select_file">选择文件</string>
+    <string name="ota_scan_failed_device">扫描到升级失败的设备 %1$s</string>
+    <string name="ota_scan_upgraded_device">扫描到已升级过的设备 %1$s</string>
+    <string name="upgrade_prohibited">没有权限，禁止升级</string>
+    <string name="bw256b_hstt">BW256B高速透传</string>
+    <string name="start_connect">开始连接</string>
+    <string name="location_permission_explanation">定位权限是扫描wifi直连设备所必须的权限</string>
+    <string name="bluetooth_need_location">连接蓝牙设备需要位置权限</string>
+    <string name="wifi_permission_explanation">需要这些权限来发现附近的 Wi-Fi 设备</string>
+    <string name="location_manually_enable">您需要去应用程序设置中手动开启定位权限</string>
+    <string name="wifi_manually_enable">您需要去应用程序设置中手动开启wifi权限</string>
+    <string name="removed_group">群组已成功移除，所有连接已断开</string>
+    <string name="wlan_direct_connection">WLAN直连</string>
+    <string name="removed_group_failed">移除群组失败: %1$s</string>
+    <string name="turned_off_disconnect">Wifi被关闭或P2p连接已断开</string>
+    <string name="discovery_success">发现成功</string>
+    <string name="discovery_failure">发现失败: %1$s</string>
+    <string name="p2p_not_supported">此设备不支持P2P。</string>
+    <string name="unknown_error">未知错误: %1$s</string>
+    <string name="p2p_connect_success">P2p连接成功</string>
+    <string name="open_fsc_engine">进入空中指令模式，可以进行升级</string>
+    <string name="close_fsc_engine">退出空中指令模式，不能进行升级</string>
+    <string name="tcp_conect_success">TCP客户端连接成功</string>
+    <string name="tcp_connect_fail">TCP客户端连接失败</string>
+    <string name="tcp_client_connecting">Tcp客户端连接中</string>
+    <string name="air_upgrade">空中升级</string>
+    <string name="read_write_permission_explain">读写权限是将固件保存到本地和从本地获取固件所必须的权限</string>
+    <string name="file_read_write_permission_explain">保存和获取文件需要读写权限</string>
+    <string name="read_write_permission_manually_enable">您需要去应用程序设置中手动开启读写权限</string>
+    <string name="receive_data">接收数据</string>
+    <string name="clear_data">清除数据</string>
+    <string name="send_data">发送数据</string>
+    <string name="activate_aerial_command">开启空中指令</string>
+    <string name="close_aerial_command">关闭空中指令</string>
+    <string name="download_firmware">下载固件</string>
+    <string name="select_firmware">选择固件</string>
+    <string name="selected_firmware">已选固件: </string>
+    <string name="empty">无</string>
+    <string name="start_service">开启服务</string>
+    <string name="close_service">关闭服务</string>
+    <string name="start_upgrade">开始升级</string>
+    <string name="click_device">点击设备: %1$s</string>
+    <string name="connect_to">连接到: %1$s</string>
+    <string name="p2p_connect_fail">连接失败: %1$s</string>
+    <string name="p2p_unsupported">P2P功能不被支持：%1$s</string>
+    <string name="busy">系统忙，请稍后重试：%1$s</string>
+    <string name="p2p_error">发现设备失败，发生错误：%1$s</string>
+    <string name="disconnect_p2p">断开p2p连接</string>
+    <string name="p2p_connect">p2p连接</string>
+    <string name="disconnect">断开</string>
+    <string name="invalid_file_uri">无效的Uri文件</string>
+    <string name="entered_wifi_transparent">成功进入wifi透传模式</string>
+    <string name="entered_serial_port_transparent">成功进入串口透传模式</string>
+    <string name="tcp_client_connect_failed">TCP客户端连接失败</string>
+    <string name="app_ver">APP版本: </string>
+    <string name="sdk_ver">SDK版本: </string>
+    <string name="contact_us">联系我们</string>
+    <string name="contact_you">联系邮箱</string>
+    <string name="wifi_mode">wifi模式</string>
+    <string name="serial_port_mode">串口模块</string>
+    <string name="wait">请等待...</string>
+    <string name="apply">申请</string>
+    <string name="insufficient_permissions">权限不够!</string>
+
+
+
+    <string name="common_permission_description_title">权限说明</string>
+    <string name="common_permission_confirm">确定</string>
+
+    <string name="common_permission_alert">授权提醒</string>
+
+    <string name="common_permission_fail_assign_hint_1">申请权限失败，请手动授予%s</string>
+    <string name="common_permission_fail_assign_hint_2">申请权限失败，请正确授予%s</string>
+
+    <string name="common_permission_fail_hint_1">申请%s失败，请选择 \“%s\” 选项</string>
+    <string name="common_permission_fail_hint_2">申请%s失败，请选择 \“%s\” 并开启 \“%s\” 选项</string>
+    <string name="common_permission_fail_hint_3">申请%s失败，请开启 \“%s\” 选项</string>
+
+    <string name="common_permission_allow_all_option">全部允许</string>
+    <string name="common_permission_allow_all_the_time_option">始终允许</string>
+
+    <string name="common_permission_go_to_authorization">前往授权</string>
+
+    <string name="common_permission_comma">、</string>
+    <string name="common_permission_colon">：</string>
+    <string name="common_permission_and">、</string>
+
+    <string name="common_permission_unknown">权限</string>
+    <string name="common_permission_unknown_description">需要先申请该权限，才能继续使用该业务</string>
+
+    <string name="common_permission_calendar">日历权限</string>
+    <string name="common_permission_calendar_description">用于创建、查看和管理日程安排，例如同步会议提醒、自动导入活动时间，让您随时掌握行程动态。</string>
+
+    <string name="common_permission_camera">相机权限</string>
+    <string name="common_permission_camera_description">用于拍摄照片、录制视频或扫描二维码，例如上传头像、记录生活瞬间或快速识别信息。</string>
+
+    <string name="common_permission_contacts">通讯录权限</string>
+    <string name="common_permission_contacts_description">用于读取联系人信息，例如快速查找好友、同步联系人到应用或向通讯录好友分享内容。</string>
+
+    <string name="common_permission_location">定位权限</string>
+    <string name="common_permission_location_description">用于扫描附近的BLE蓝牙设备，以便进行设备连接和通信。（在Android 11及以下版本需要此权限）</string>
+
+    <string name="common_permission_location_fine">精确定位权限</string>
+    <string name="common_permission_location_fine_option">确切位置</string>
+
+    <string name="common_permission_location_background">后台定位权限</string>
+    <string name="common_permission_location_background_description">用于在后台持续获取位置信息，例如实时轨迹记录、后台导航或紧急情况下的位置共享。</string>
+
+    <string name="common_permission_nearby_devices">附近设备权限</string>
+    <string name="common_permission_nearby_devices_description">用于扫描和连接附近的BLE蓝牙设备，以便进行通信。（在Android 12及以上版本需要此权限）</string>
+
+    <string name="common_permission_microphone">麦克风权限</string>
+    <string name="common_permission_microphone_description">用于录制声音，例如语音聊天、录制音频、语音输入或使用语音识别功能。</string>
+
+    <string name="common_permission_phone">电话权限</string>
+    <string name="common_permission_phone_description">用于读取通话状态和电话号码，例如来电自动识别、快速拨号或统计通话信息。</string>
+
+    <string name="common_permission_call_logs">通话记录权限</string>
+    <string name="common_permission_call_logs_description">用于读取通话历史，例如快速回拨号码、统计通话时长或标记骚扰电话。</string>
+
+    <string name="common_permission_body_sensors">身体传感器权限</string>
+    <string name="common_permission_body_sensors_description">用于获取心率、步数等生理数据，例如健康监测、运动记录或个性化健康建议。</string>
+
+    <string name="common_permission_body_sensors_background">后台身体传感器权限</string>
+    <string name="common_permission_body_sensors_background_description">用于在后台持续获取生理数据，例如睡眠监测、全天候健康追踪或紧急健康状况预警。</string>
+
+    <string name="common_permission_health_data">健康数据共享权限</string>
+    <string name="common_permission_health_data_description">@string/common_permission_body_sensors_description</string>
+
+    <string name="common_permission_health_data_background">后台健康数据共享权限</string>
+    <string name="common_permission_health_data_background_option">在后台访问健身与健康数据</string>
+    <string name="common_permission_health_data_background_description">@string/common_permission_body_sensors_background_description</string>
+
+    <string name="common_permission_health_data_past">过往的健身与健康数据权限</string>
+    <string name="common_permission_health_data_past_option">访问过往的健身与健康数据</string>
+    <string name="common_permission_health_data_past_description">访问过往的健身与健康数据以判断当前身体状态。</string>
+
+    <string name="common_permission_activity_recognition_api29">健身运动权限</string>
+    <string name="common_permission_activity_recognition_api30">身体活动权限</string>
+    <string name="common_permission_activity_recognition_description">用于识别步行、跑步等运动状态，例如运动模式自动切换、运动数据统计或健身计划制定。</string>
+
+    <string name="common_permission_access_media_location_information">访问媒体的位置信息权限</string>
+    <string name="common_permission_access_media_location_information_description">用于获取照片、视频等媒体文件的拍摄位置，例如按地点整理相册、显示照片拍摄地图或分享带位置的媒体内容。</string>
+
+    <string name="common_permission_sms">短信权限</string>
+    <string name="common_permission_sms_description">用于读取短信内容（如验证码）、发送短信或备份短信记录，例如自动填充验证码、批量发送信息或短信归档。</string>
+
+    <string name="common_permission_storage">存储权限</string>
+    <string name="common_permission_storage_description">用于读取和写入手机存储，例如保存图片、下载文件、缓存数据或备份应用设置。</string>
+
+    <string name="common_permission_post_notifications">发送通知权限</string>
+    <string name="common_permission_post_notifications_description">用于向您发送消息通知，例如新消息提醒、活动通知或重要事项推送。</string>
+
+    <string name="common_permission_image_and_video">照片和视频权限</string>
+    <string name="common_permission_image_and_video_description">用于访问相册中的照片和视频，例如上传图片、编辑视频或分享媒体文件到应用。</string>
+
+    <string name="common_permission_music_and_audio">音乐和音频权限</string>
+    <string name="common_permission_music_and_audio_description">用于访问手机中的音乐和音频文件，例如播放本地音乐、设置铃声或编辑音频内容。</string>
+
+    <string name="common_permission_get_installed_apps">读取应用列表权限</string>
+    <string name="common_permission_get_installed_apps_description">用于获取已安装的应用信息，以提供个性化推荐。例如，根据您安装的应用推荐相关工具，或根据您的应用使用习惯定制内容（您的应用列表数据将匿名使用，不会分享给第三方）。</string>
+
+    <string name="common_permission_all_file_access">所有文件访问权限</string>
+    <string name="common_permission_all_file_access_description">@string/common_permission_storage_description</string>
+
+    <string name="common_permission_install_unknown_apps">安装应用权限</string>
+    <string name="common_permission_install_unknown_apps_description">用于应用自更新功能，当官方版本发布时可直接在App内下载并安装最新版本，避免手动到浏览器下载的繁琐。</string>
+
+    <string name="common_permission_display_over_other_apps">悬浮窗权限</string>
+    <string name="common_permission_display_over_other_apps_description">用于在其他应用上方显示内容，当应用处于后台状态时，依然能够展示悬浮窗口。</string>
+
+    <string name="common_permission_modify_system_settings">修改系统设置权限</string>
+    <string name="common_permission_modify_system_settings_description">用于修改系统级设置，例如调整音量、切换网络模式或自定义显示设置。</string>
+
+    <string name="common_permission_allow_notifications">通知权限</string>
+    <string name="common_permission_allow_notifications_description">@string/common_permission_post_notifications_description</string>
+
+    <string name="common_permission_allow_notifications_access">通知栏监听权限</string>
+    <string name="common_permission_allow_notifications_access_description">用于读取通知栏内容，例如自动识别验证码、汇总通知信息或智能管理通知提醒。</string>
+
+    <string name="common_permission_apps_with_usage_access">查看使用情况权限</string>
+    <string name="common_permission_apps_with_usage_access_description">用于获取应用使用时间和频率，例如屏幕时间管理、应用使用统计或个性化推荐。</string>
+
+    <string name="common_permission_alarms_reminders">闹钟和提醒权限</string>
+    <string name="common_permission_alarms_reminders_description">用于创建和管理闹钟、提醒事项，例如日程闹钟、任务提醒或周期性活动通知。</string>
+
+    <string name="common_permission_do_not_disturb_access">勿扰权限</string>
+    <string name="common_permission_do_not_disturb_access_description">用于管理手机勿扰模式，例如自动切换勿扰时段、设置例外通知或临时屏蔽干扰信息。</string>
+
+    <string name="common_permission_ignore_battery_optimize">忽略电池优化权限</string>
+    <string name="common_permission_ignore_battery_optimize_description">用于保持应用后台运行，例如实时接收消息、持续定位或后台数据同步。</string>
+
+    <string name="common_permission_picture_in_picture">画中画权限</string>
+    <string name="common_permission_picture_in_picture_description">用于开启画中画模式，例如边看视频边操作其他应用、悬浮视频窗口或多任务处理。</string>
+
+    <string name="common_permission_full_screen_notifications">全屏通知权限</string>
+    <string name="common_permission_full_screen_notifications_description">允许在设备锁定时显示占据整个屏幕空间的通知，确保重要信息（如来电、紧急消息）不会被错过，即使设备处于锁屏状态也能立即看到提醒。</string>
+
+    <string name="common_permission_device_admin">设备管理器权限</string>
+    <string name="common_permission_device_admin_description">用于提供设备级管理功能，例如远程锁定设备、擦除数据或强制密码策略。</string>
+
+    <string name="common_permission_accessibility_service">无障碍服务权限</string>
+    <string name="common_permission_accessibility_service_description">用于帮助残障用户使用手机，例如语音播报、手势辅助或自动点击。（请在已下载的应用或者服务列表中找到并开启）</string>
+
+    <string name="common_permission_vpn">\tVPN\t权限</string>
+    <string name="common_permission_vpn_description">用于创建和管理 VPN 连接，例如访问内网资源、网络代理或加密网络传输。</string>
+    <string name="file_valid">选择的文件为空，请选择有效文件</string>
+    <string name="select_file_fail">文件选择失败，请重试</string>
+
+
+</resources>

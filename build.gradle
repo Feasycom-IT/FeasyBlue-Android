@@ -1,0 +1,53 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    ext.kotlin_version = '1.5.0'
+    ext.ndkVersion = "29.0.13599879"
+    repositories {
+        maven { url = uri("https://maven.aliyun.com/repository/public") }
+        maven { url = uri("https://maven.aliyun.com/repository/google") }
+        maven { url = uri("https://maven.aliyun.com/repository/central") }
+        maven { url = uri("https://maven.aliyun.com/repository/gradle-plugin") }
+        maven { url = uri("https://jitpack.io") } // 修复语法错误：url 'xxx' → url = uri("xxx")
+        mavenCentral()
+        google()
+    }
+    dependencies {
+        def nav_version = '2.7.7'
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
+        classpath 'com.android.tools.build:gradle:8.13.2'
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:2.0.0'
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+
+
+
+allprojects {
+    repositories {
+        maven { url = uri("https://maven.aliyun.com/repository/public") }
+        maven { url = uri("https://maven.aliyun.com/repository/google") }
+        maven { url = uri("https://maven.aliyun.com/repository/central") }
+        maven { url = uri("https://maven.aliyun.com/repository/gradle-plugin") }
+        maven { url = uri("https://jitpack.io") } // 修复语法错误
+        google()
+        mavenCentral()
+    }
+}
+
+
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+
+ext{
+    coroutines_version = "1.4.2"
+    room_version = "2.2.6"
+    retrofit_version = "2.9.0"
+    work_version = "2.5.0"
+    glide_version = "4.11.0"
+    lifecycle_version = "2.3.1"
+}

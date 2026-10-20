@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/otaToolbar"
+        android:layout_width="match_parent"
+        android:layout_marginTop="45dp"
+        android:layout_height="50dp"
+        android:background="@color/black"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/otaTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="5dp"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.95" />
+
+    <TextView
+        android:id="@+id/otaState"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="@string/openFile"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toBottomOf="@+id/otaToolbar" />
+
+    <Chronometer
+        android:id="@+id/timeCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/otaState"
+        android:layout_alignParentEnd="true"
+        app:layout_constraintBottom_toBottomOf="@+id/otaState"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintTop_toTopOf="@+id/otaState" />
+
+    <ProgressBar
+        android:id="@+id/otaProgress"
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintEnd_toStartOf="@+id/progressCount"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toBottomOf="@+id/otaState" />
+
+
+    <TextView
+        android:id="@+id/progressCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/otaProgress"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="5dp"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="@+id/otaProgress"
+        app:layout_constraintEnd_toStartOf="@+id/textView2"
+        app:layout_constraintTop_toTopOf="@+id/otaProgress"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="%"
+        app:layout_constraintBottom_toBottomOf="@+id/otaProgress"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintTop_toTopOf="@+id/otaProgress" />
+
+
+    <ImageButton
+        android:id="@+id/selectFileButton"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_below="@+id/progressCount"
+        android:background="@drawable/file"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toBottomOf="@+id/otaProgress" />
+
+
+    <TextView
+        android:id="@+id/open"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/selectFileButton"
+        android:layout_marginStart="8dp"
+        android:layout_toRightOf="@id/selectFileButton"
+        android:text="@string/select_firmware"
+        app:layout_constraintBottom_toBottomOf="@+id/selectFileButton"
+        app:layout_constraintStart_toEndOf="@+id/selectFileButton"
+        app:layout_constraintTop_toTopOf="@+id/selectFileButton" />
+
+    <ImageButton
+        android:id="@+id/downloadButton"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_below="@+id/progressCount"
+        android:layout_marginStart="10dp"
+        android:layout_toEndOf="@+id/open"
+        android:background="@drawable/download"
+        app:layout_constraintBottom_toBottomOf="@+id/open"
+        app:layout_constraintStart_toEndOf="@+id/open"
+        app:layout_constraintTop_toTopOf="@+id/open" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/downloadButton"
+        android:layout_marginStart="8dp"
+        android:text="@string/download_firmware"
+        app:layout_constraintBottom_toBottomOf="@+id/downloadButton"
+        app:layout_constraintStart_toEndOf="@+id/downloadButton"
+        app:layout_constraintTop_toTopOf="@+id/downloadButton" />
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/selectFileButton"
+        android:layout_marginTop="10dp"
+        android:text="@string/selected_firmware"
+        app:layout_constraintStart_toStartOf="@+id/guideline2"
+        app:layout_constraintTop_toBottomOf="@+id/selectFileButton" />
+
+    <TextView
+        android:id="@+id/fileNameTv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="@string/empty"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintStart_toEndOf="@+id/textView"
+        app:layout_constraintTop_toTopOf="@+id/textView" />
+
+    <Button
+        android:id="@+id/startOtaButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:enabled="false"
+        android:padding="2dp"
+        android:text="@string/start_upgrade"
+        android:background="@drawable/button_selector"
+        android:textColor="@color/button_text_color"
+        android:textSize="18sp"
+        android:textAllCaps="false"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/guideline7"
+        app:layout_constraintStart_toStartOf="@+id/guideline2" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:constraint_referenced_ids="progressCount,otaProgress,timeCount,textView2" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

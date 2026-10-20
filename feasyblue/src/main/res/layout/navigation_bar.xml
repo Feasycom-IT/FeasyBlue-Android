@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/color_nb">
+
+    <TextView
+        android:id="@+id/tv_nb_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="@string/communication"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
+
+    <TextView
+        android:id="@+id/tv_nb_subTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_nb_title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        android:text=""
+        android:textColor="@color/grey"
+        android:textSize="12dp" />
+
+    <CheckBox
+        android:id="@+id/cb_ble"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="4dp"
+        android:text="BLE"
+        android:textColor="@color/white"
+        android:visibility="invisible" />
+
+    <CheckBox
+        android:id="@+id/cb_spp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/cb_ble"
+        android:layout_alignLeft="@+id/cb_ble"
+        android:layout_alignParentRight="true"
+        android:text="SPP"
+        android:textColor="@color/white"
+        android:visibility="invisible" />
+
+    <Button
+        android:id="@+id/btn_right"
+        android:layout_width="100dp"
+        android:layout_height="40dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_margin="8dp"
+        android:background="@drawable/btn_background_default_hightlight"
+        android:padding="2dp"
+        android:text="@string/start"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:visibility="invisible" />
+
+
+    <Button
+        android:id="@+id/btn_left"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="8dp"
+        android:background="@drawable/goback"
+        android:padding="2dp"
+        android:text=""
+        android:textAllCaps="false" />
+
+</RelativeLayout>

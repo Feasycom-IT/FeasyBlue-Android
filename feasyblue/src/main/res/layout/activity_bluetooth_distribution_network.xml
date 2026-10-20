@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <EditText
+        android:id="@+id/gw_ev"
+        style="@style/bluetooth_ev"
+        android:hint="@string/hint_gw"
+        app:layout_constraintEnd_toStartOf="@+id/guideline43"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline27"
+        app:layout_constraintTop_toBottomOf="@+id/ip_ev"
+        tools:ignore="Autofill,TextFields" />
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/header"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/ip_ev"
+        style="@style/bluetooth_ev"
+        android:hint="@string/hint_ip"
+        app:layout_constraintEnd_toStartOf="@+id/guideline43"
+        app:layout_constraintHorizontal_bias="0.996"
+        app:layout_constraintStart_toStartOf="@+id/guideline27"
+        app:layout_constraintTop_toBottomOf="@+id/dhcpSwitch"
+        tools:ignore="Autofill,TextFields" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline21"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.90" />
+
+    <TextView
+        android:id="@+id/textView3"
+        style="@style/bluetooth_tv"
+        android:text="@string/ssid"
+        app:layout_constraintBottom_toBottomOf="@+id/ssid_ev"
+        app:layout_constraintStart_toStartOf="@+id/guideline19"
+        app:layout_constraintTop_toTopOf="@+id/ssid_ev" />
+
+    <TextView
+        android:id="@+id/textView7"
+        style="@style/bluetooth_tv"
+        android:text="@string/password"
+        app:layout_constraintBottom_toBottomOf="@+id/password_ev"
+        app:layout_constraintStart_toStartOf="@+id/guideline19"
+        app:layout_constraintTop_toTopOf="@+id/password_ev" />
+
+    <EditText
+        android:id="@+id/password_ev"
+        style="@style/bluetooth_ev"
+        android:hint="@string/hint_password"
+        app:layout_constraintEnd_toStartOf="@+id/guideline43"
+        app:layout_constraintHorizontal_bias="0.996"
+        app:layout_constraintStart_toStartOf="@+id/guideline27"
+        app:layout_constraintTop_toBottomOf="@+id/ssid_ev"
+        tools:ignore="Autofill,TextFields" />
+
+    <EditText
+        android:id="@+id/ssid_ev"
+        style="@style/bluetooth_ev"
+        android:hint="@string/hint_ssid"
+        app:layout_constraintEnd_toStartOf="@+id/guideline43"
+        app:layout_constraintStart_toStartOf="@+id/guideline27"
+        app:layout_constraintTop_toBottomOf="@+id/header"
+        tools:ignore="Autofill,TextFields" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline27"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.3" />
+
+    <TextView
+        android:id="@+id/textView18"
+        style="@style/bluetooth_tv"
+        android:text="@string/ip"
+        app:layout_constraintBottom_toBottomOf="@+id/ip_ev"
+        app:layout_constraintStart_toStartOf="@+id/guideline19"
+        app:layout_constraintTop_toTopOf="@+id/ip_ev" />
+
+    <Button
+        android:id="@+id/configNetwork"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button"
+        android:text="@string/network_config"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toStartOf="@+id/guideline21"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/guideline20"
+        app:layout_constraintTop_toBottomOf="@+id/dns_ev" />
+
+    <TextView
+        android:id="@+id/textView4"
+        style="@style/bluetooth_tv"
+        android:text="DHCP"
+        app:layout_constraintBottom_toBottomOf="@+id/dhcpSwitch"
+        app:layout_constraintStart_toStartOf="@+id/guideline19"
+        app:layout_constraintTop_toTopOf="@+id/dhcpSwitch"
+        tools:ignore="HardcodedText" />
+
+    <com.feasycom.feasyblue.widget.SwitchButtons
+        android:id="@+id/dhcpSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:checked="true"
+        android:text="DHCP"
+        app:layout_constraintStart_toStartOf="@+id/guideline27"
+        app:layout_constraintTop_toBottomOf="@+id/password_ev"
+        tools:ignore="HardcodedText" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <TextView
+        android:id="@+id/textView17"
+        style="@style/bluetooth_tv"
+        android:text="GW:"
+        app:layout_constraintBottom_toBottomOf="@+id/gw_ev"
+        app:layout_constraintStart_toStartOf="@+id/guideline19"
+        app:layout_constraintTop_toTopOf="@+id/gw_ev"
+        tools:ignore="HardcodedText" />
+
+    <TextView
+        android:id="@+id/textView23"
+        style="@style/bluetooth_tv"
+        android:text="MASK:"
+        app:layout_constraintBottom_toBottomOf="@+id/mask_ev"
+        app:layout_constraintStart_toStartOf="@+id/guideline19"
+        app:layout_constraintTop_toTopOf="@+id/mask_ev"
+        tools:ignore="HardcodedText" />
+
+    <EditText
+        android:id="@+id/mask_ev"
+        style="@style/bluetooth_ev"
+        android:hint="@string/hint_mask"
+        app:layout_constraintEnd_toStartOf="@+id/guideline43"
+        app:layout_constraintStart_toStartOf="@+id/guideline27"
+        app:layout_constraintTop_toBottomOf="@+id/gw_ev"
+        tools:ignore="Autofill,TextFields" />
+
+    <TextView
+        android:id="@+id/textView24"
+        style="@style/bluetooth_tv"
+        android:text="DNS:"
+        app:layout_constraintBottom_toBottomOf="@+id/dns_ev"
+        app:layout_constraintStart_toStartOf="@+id/guideline19"
+        app:layout_constraintTop_toTopOf="@+id/dns_ev"
+        tools:ignore="HardcodedText" />
+
+    <EditText
+        android:id="@+id/dns_ev"
+        style="@style/bluetooth_ev"
+        android:hint="@string/hint_dns"
+        app:layout_constraintEnd_toStartOf="@+id/guideline43"
+        app:layout_constraintHorizontal_bias="0.525"
+        app:layout_constraintStart_toStartOf="@+id/guideline27"
+        app:layout_constraintTop_toBottomOf="@+id/mask_ev"
+        tools:ignore="Autofill,TextFields" />
+
+    <View
+        android:id="@+id/divider4"
+        style="@style/view_style"
+        app:layout_constraintEnd_toStartOf="@+id/guideline42"
+        app:layout_constraintStart_toStartOf="@+id/guideline19"
+        app:layout_constraintTop_toBottomOf="@+id/ssid_ev" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline42"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.95" />
+
+    <View
+        android:id="@+id/divider5"
+        style="@style/view_style"
+        app:layout_constraintEnd_toStartOf="@+id/guideline42"
+        app:layout_constraintStart_toStartOf="@+id/guideline19"
+        app:layout_constraintTop_toBottomOf="@+id/password_ev" />
+
+    <View
+        android:id="@+id/divider6"
+        style="@style/view_style"
+        app:layout_constraintEnd_toStartOf="@+id/guideline42"
+        app:layout_constraintStart_toStartOf="@+id/guideline19"
+        app:layout_constraintTop_toBottomOf="@+id/ip_ev" />
+
+    <View
+        android:id="@+id/divider7"
+        style="@style/view_style"
+        app:layout_constraintEnd_toStartOf="@+id/guideline42"
+        app:layout_constraintStart_toStartOf="@+id/guideline19"
+        app:layout_constraintTop_toBottomOf="@+id/gw_ev" />
+
+    <View
+        android:id="@+id/divider8"
+        style="@style/view_style"
+        app:layout_constraintEnd_toStartOf="@+id/guideline42"
+        app:layout_constraintStart_toStartOf="@+id/guideline19"
+        app:layout_constraintTop_toBottomOf="@+id/mask_ev" />
+
+    <View
+        android:id="@+id/divider9"
+        style="@style/view_style"
+        app:layout_constraintEnd_toStartOf="@+id/guideline42"
+        app:layout_constraintStart_toStartOf="@+id/guideline19"
+        app:layout_constraintTop_toBottomOf="@+id/dns_ev" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline43"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.85" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/dhcp_group"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="textView18,ip_ev,divider6,textView17,gw_ev,divider7, textView23,mask_ev, divider8" />
+
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/dns_group"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:constraint_referenced_ids="textView24,dns_ev, divider9" />
+</androidx.constraintlayout.widget.ConstraintLayout>

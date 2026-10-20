@@ -1,0 +1,19 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 背景条 -->
+    <item android:id="@android:id/background">
+        <shape android:shape="rectangle">
+            <solid android:color="#D3D3D3"/> <!-- 背景灰 -->
+            <corners android:radius="@dimen/dp_0"/>
+        </shape>
+    </item>
+
+    <!-- 进度条 -->
+    <item android:id="@android:id/progress">
+        <clip>
+            <shape android:shape="rectangle">
+                <solid android:color="@color/throughput_progress_color"/>
+                <corners android:radius="@dimen/dp_0"/>
+            </shape>
+        </clip>
+    </item>
+</layer-list>

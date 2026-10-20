@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="Theme.Feasycom" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">#1378BD</item>
+    </style>
+
+    <style name="SplashTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- 背景图 -->
+        <item name="android:windowBackground">@mipmap/splash</item>
+
+        <!-- 完全全屏 -->
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowIsFloating">false</item>
+
+        <!-- 防止状态栏、导航栏闪烁 -->
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:enforceNavigationBarContrast" tools:ignore="NewApi">false</item>
+        <item name="android:enforceStatusBarContrast" tools:ignore="NewApi">false</item>
+
+        <!-- 刘海屏适配 -->
+        <item name="android:windowLayoutInDisplayCutoutMode" tools:ignore="NewApi">shortEdges</item>
+
+        <!-- 禁用预览 -->
+        <item name="android:windowDisablePreview">true</item>
+        <item name="android:windowShowWallpaper">false</item>
+
+        <!-- Android 11+ 沉浸式关键 -->
+        <item name="android:fitsSystemWindows">false</item>
+    </style>
+
+
+    <style name="AdTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+
+        <!-- 强制全屏 -->
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowNoTitle">true</item>
+
+        <!-- 禁用预览，移除壁纸 -->
+        <item name="android:windowDisablePreview">true</item>
+        <item name="android:windowShowWallpaper">false</item>
+
+        <!-- 关闭ActionBar -->
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowActionBarOverlay">false</item>
+
+        <!-- 刘海屏适配 -->
+        <item name="android:windowLayoutInDisplayCutoutMode" tools:ignore="NewApi">shortEdges</item>
+
+        <!-- Android 11+ 沉浸式关键 -->
+        <item name="android:fitsSystemWindows">false</item>
+    </style>
+
+
+    <style name="header_right_check_text">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="Device_Addr_Mac_TV">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/beacon_info</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="throughputText">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="selectFileButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">60dp</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:textColor">@color/footer_on_text_color</item>
+        <item name="android:layout_margin">1dp</item>
+    </style>
+
+    <!--about-->
+    <style name="aboutRightTV">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textColor">@color/about_title</item>
+    </style>
+
+    <style name="moduleTV">
+        <item name="android:layout_width">80dp</item>
+        <item name="android:layout_marginStart">20dp</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:textColor">@color/about_text</item>
+    </style>
+
+    <style name="aboutLL">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">40dp</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:orientation">horizontal</item>
+    </style>
+
+    <style name="serviceSelectTop">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:textColor">#171717</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="serviceSelectButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">#141414</item>
+        <item name="android:background">@drawable/buttom_line</item>
+    </style>
+
+    <style name="serviceSelectLL">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:orientation">vertical</item>
+
+    </style>
+
+    <style name="serviceSelectButtom">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">#141414</item>
+        <item name="android:background">@drawable/buttom_line</item>
+    </style>
+
+
+    <!--SettingFragment-->
+    <style name="settingButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/settingItemLength</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:padding">2dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:background">@drawable/btn_background_default_hightlight</item>
+    </style>
+
+    <style name="RadioButton">
+        <item name="android:minHeight">40dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:button">@null</item>
+        <item name="android:paddingLeft">2dp</item>
+        <item name="android:paddingRight">2dp</item>
+        <item name="android:background">@drawable/radio_group_background</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+
+    <style name="throughput_btn">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:background">@drawable/btn_background</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="test_btn">
+        <item name="android:layout_width">50dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:background">@drawable/btn_background</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="scan_model_radio">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:paddingStart">10dp</item>
+        <item name="android:button">@drawable/toolbar_radio_background</item>
+
+    </style>
+
+    <style name="setting_fragment_btn">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:background">@drawable/select_setting_btn</item>
+        <item name="android:textAllCaps">false</item>
+
+    </style>
+
+    <style name="style_progressbar">
+        <item name="android:indeterminateDrawable">@drawable/rotate_progressbar</item>
+        <item name="android:minWidth">76dip</item>
+        <item name="android:maxWidth">76dip</item>
+        <item name="android:minHeight">76dip</item>
+        <item name="android:maxHeight">76dip</item>
+    </style>
+
+    <style name="bluetooth_ev">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">20dp</item>
+        <item name="android:background">@drawable/edit_default_background</item>
+        <item name="android:gravity">center</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="bluetooth_tv">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="view_style">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:layout_marginTop">5dp</item>
+        <item name="android:background">#000000</item>
+    </style>
+
+    <style name="feedback_radio">
+        <item name="android:button">@null</item>
+        <item name="android:background">@drawable/feedback_radio</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@drawable/feedback_radio_text_color</item>
+    </style>
+
+    <!-- 缩放动画 -->
+    <style name="ScaleAnimStyle" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/window_scale_in</item>
+        <item name="android:windowExitAnimation">@anim/window_scale_out</item>
+    </style>
+
+    <!-- ios 动画 -->
+    <style name="IOSAnimStyle" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/window_ios_in</item>
+        <item name="android:windowExitAnimation">@anim/window_ios_out</item>
+    </style>
+
+    <!-- 顶部弹出动画 -->
+    <style name="TopAnimStyle" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/window_top_in</item>
+        <item name="android:windowExitAnimation">@anim/window_top_out</item>
+    </style>
+
+    <!-- 底部弹出动画 -->
+    <style name="BottomAnimStyle" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/window_bottom_in</item>
+        <item name="android:windowExitAnimation">@anim/window_bottom_out</item>
+    </style>
+
+    <!-- 左边弹出动画 -->
+    <style name="LeftAnimStyle" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/window_left_in</item>
+        <item name="android:windowExitAnimation">@anim/window_left_out</item>
+    </style>
+
+    <!-- 右边弹出动画 -->
+    <style name="RightAnimStyle" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/window_right_in</item>
+        <item name="android:windowExitAnimation">@anim/window_right_out</item>
+    </style>
+
+    <!-- 对话框默认样式 -->
+    <style name="BaseDialogStyle" parent="Theme.AppCompat.DayNight.Dialog.Alert"><!-- @android:style/Theme.Dialog -->
+        <!-- 无边框 -->
+        <item name="android:windowFrame">@null</item>
+        <!-- 浮在 Activity 之上 -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 半透明 -->
+        <item name="android:windowIsTranslucent">true</item>
+        <!-- 背景透明 -->
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <!-- 遮盖层 -->
+        <item name="android:backgroundDimEnabled">true</item>
+        <!-- 无标题 -->
+        <item name="android:windowNoTitle">true</item>
+        <!-- 动画效果 -->
+        <item name="android:windowEnterAnimation">@anim/window_scale_in</item>
+        <item name="android:windowExitAnimation">@anim/window_scale_out</item>
+        <!-- Base.Theme.AppCompat.Light.Dialog.Alert 特有的属性，用于指定默认宽度，这里需要禁用 -->
+        <item name="android:windowMinWidthMajor">0dp</item>
+        <item name="android:windowMinWidthMinor">0dp</item>
+        <!-- 解决 ActionBar 占位导致 Dialog 无法全屏显示的问题 -->
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <!-- ActionMode 覆盖 Actionbar，不顶下来 -->
+        <item name="windowActionModeOverlay">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <!-- 不感知敏感的切换 -->
+        <!--<item name="android:configChanges">orientation|screenSize|keyboardHidden</item>-->
+        <!-- 默认隐藏输入法 -->
+        <!--<item name="android:windowSoftInputMode">stateHidden</item>-->
+        <!-- Dialog 全屏显示 -->
+        <!--<item name="android:windowFullscreen">true</item>-->
+    </style>
+
+    <style name="ota_edit">
+        <item name="android:singleLine">true</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@drawable/edit_default_background</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="ota_button">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:background">@drawable/button</item>
+        <item name="android:textAllCaps">false</item>
+    </style>
+
+</resources>

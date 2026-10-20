@@ -1,0 +1,403 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/throughput_background">
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/header"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:layout_width="@dimen/dp_0"
+        android:layout_height="@dimen/dp_0"
+        android:padding="@dimen/dp_10"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <Button
+                    android:id="@+id/clearButton"
+                    style="@style/throughput_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:text="@string/clear"
+                    android:textColor="@color/throughput_text_color" />
+
+                <Button
+                    android:id="@+id/upgradeButton"
+                    style="@style/throughput_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginRight="20dp"
+                    android:layout_toLeftOf="@+id/clearButton"
+                    android:enabled="false"
+                    android:text="@string/upgrade"
+                    android:textColor="@color/throughput_text_color" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_10">
+
+                <TextView
+                    android:id="@+id/receiveDataTv"
+                    style="@style/throughputText"
+                    android:text="@string/send1"
+                    android:textSize="@dimen/sp_10" />
+
+                <TextView
+                    android:id="@+id/crcReceiveTv"
+                    style="@style/throughputText"
+                    android:layout_alignParentRight="true"
+                    android:text="@string/CRC"
+                    android:textSize="@dimen/sp_10"
+                    android:visibility="gone" />
+
+            </RelativeLayout>
+
+            <EditText
+                android:id="@+id/receiveDataEt"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp_200"
+                android:layout_marginTop="@dimen/dp_10"
+                android:background="@color/white"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
+                android:gravity="top|start"
+                android:inputType="textMultiLine"
+                android:overScrollMode="always"
+                android:scrollbars="vertical" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_10">
+
+                <TextView
+                    android:id="@+id/sendDataTv"
+                    style="@style/throughputText"
+                    android:text="@string/send1"
+                    android:textSize="@dimen/sp_10" />
+
+                <TextView
+                    android:id="@+id/crcSendTv"
+                    style="@style/throughputText"
+                    android:layout_alignParentRight="true"
+                    android:text="@string/CRC"
+                    android:textSize="@dimen/sp_10"
+                    android:visibility="gone" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/sendDataLl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_10"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:orientation="vertical">
+
+                    <EditText
+                        android:id="@+id/sendDataEt"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_100"
+                        android:background="@color/white"
+                        android:gravity="top" />
+
+                    <TextView
+                        android:id="@+id/sendByteCountTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/sendDataEt"
+                        android:layout_alignParentRight="true"
+                        android:text="@string/byteString"
+                        android:textSize="@dimen/sp_8" />
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="@dimen/dp_0"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/tcpConnectBtn"
+                            style="@style/throughput_btn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/dp_8"
+                            android:enabled="false"
+                            android:text="@string/connect"
+                            android:textColor="@color/throughput_text_color" />
+
+                        <Button
+                            android:id="@+id/tcpDisconnectBtn"
+                            style="@style/throughput_btn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/dp_8"
+                            android:enabled="false"
+                            android:text="@string/disconnect"
+                            android:textColor="@color/throughput_text_color" />
+
+                    </LinearLayout>
+
+                    <Button
+                        android:id="@+id/sendDataBtn"
+                        style="@style/throughput_btn"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:enabled="false"
+                        android:text="@string/btnSends"
+                        android:textColor="@color/throughput_text_color" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_10"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="@dimen/dp_0"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/openAirCommandBtn"
+                            style="@style/throughput_btn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/dp_8"
+                            android:enabled="false"
+                            android:text="@string/activate_aerial_command"
+                            android:textColor="@color/throughput_text_color" />
+
+                        <Button
+                            android:id="@+id/closeAirCommandBtn"
+                            style="@style/throughput_btn"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginEnd="@dimen/dp_8"
+                            android:enabled="false"
+                            android:text="@string/close_aerial_command"
+                            android:textColor="@color/throughput_text_color" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/sendNewLineTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical"
+                        android:text="@string/send_new_line" />
+
+                    <com.github.iielse.switchbutton.SwitchView
+                        android:id="@+id/sendNewLineSwitchView"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_vertical" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/fileTransferProgressLl"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_20"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <!--                <com.daimajia.numberprogressbar.NumberProgressBar-->
+                <!--                    android:id="@+id/numberProgressBar"-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_marginTop="@dimen/dp_40"-->
+                <!--                    android:layout_marginBottom="@dimen/dp_40"-->
+                <!--                    custom:progress_current="0"-->
+                <!--                    custom:progress_max="100"-->
+                <!--                    custom:progress_reached_bar_height="@dimen/dp_40"-->
+                <!--                    custom:progress_reached_color="@color/throughput_progress_color"-->
+                <!--                    custom:progress_text_color="@color/black"-->
+                <!--                    custom:progress_text_offset="@dimen/dp_1"-->
+                <!--                    custom:progress_text_size="@dimen/sp_22"-->
+                <!--                    custom:progress_unreached_bar_height="@dimen/dp_40"-->
+                <!--                    custom:progress_unreached_color="@color/throughput_background" />-->
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/dp_40"
+                    android:layout_marginBottom="@dimen/dp_40">
+
+                    <ProgressBar
+                        android:id="@+id/otaProgress"
+                        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/dp_20"
+                        android:layout_marginEnd="@dimen/dp_10"
+                        android:layout_toStartOf="@+id/progressCount" />
+
+                    <TextView
+                        android:id="@+id/progressCount"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/dp_5"
+                        android:layout_toStartOf="@+id/textView2"
+                        android:text="0" />
+
+                    <TextView
+                        android:id="@+id/textView2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:text="%" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/rateTextView"
+                        style="@style/throughputText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/rate" />
+
+                    <TextView
+                        android:id="@+id/textView28"
+                        style="@style/throughputText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_toStartOf="@+id/chronometer"
+                        android:text="@string/timer" />
+
+                    <Chronometer
+                        android:id="@+id/chronometer"
+                        style="@style/throughputText"
+                        android:layout_alignParentRight="true"
+                        android:format="00:00:00.000" />
+
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/selectedFileTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="@dimen/dp_20"
+                    android:ellipsize="end"
+                    android:gravity="end"
+                    android:maxLines="3"
+                    android:text="new text"
+                    android:textColor="@color/black" />
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp_20">
+
+                <RelativeLayout
+                    android:id="@+id/sendFileStatusRl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:visibility="gone">
+
+                    <ImageButton
+                        android:id="@+id/stopImageButton"
+                        android:layout_width="@dimen/dp_40"
+                        android:layout_height="@dimen/dp_40"
+                        android:background="@null"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/stop" />
+
+                    <ImageButton
+                        android:id="@+id/startImageButton"
+                        android:layout_width="@dimen/dp_40"
+                        android:layout_height="@dimen/dp_40"
+                        android:layout_marginStart="@dimen/dp_20"
+                        android:layout_toRightOf="@+id/stopImageButton"
+                        android:background="@null"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/start"
+                        android:visibility="gone" />
+
+                </RelativeLayout>
+
+                <Button
+                    android:id="@+id/isWifiModeButton"
+                    style="@style/throughput_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:enabled="false"
+                    android:text="@string/wifi_mode"
+                    android:textColor="@color/throughput_text_color" />
+
+                <Button
+                    android:id="@+id/isSerialPortModeButton"
+                    style="@style/throughput_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:enabled="false"
+                    android:text="@string/serial_port_mode"
+                    android:textColor="@color/throughput_text_color" />
+
+                <Button
+                    android:id="@+id/sendFileButton"
+                    style="@style/throughput_btn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_gravity="end"
+                    android:enabled="false"
+                    android:text="@string/send_file"
+                    android:textColor="@color/throughput_text_color" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

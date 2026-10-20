@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_marginTop="5dp">
+        <TextView
+            android:id="@+id/label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="AT+ "
+            android:textColor="@color/black"
+            />
+        <EditText
+            android:id="@+id/command"
+            android:maxLength="29"
+            android:layout_width="100dp"
+            android:layout_gravity="center_vertical"
+            android:background="@drawable/edit_background1"
+            android:layout_height="35dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=" = "
+            android:textColor="@color/black"
+            android:layout_gravity="center_vertical"
+            android:textSize="18sp"/>
+<!--   之前默认是输入29个长度     android:maxLength="29"-->
+        <EditText
+            android:id="@+id/parameter"
+            android:maxLength="29"
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:background="@drawable/edit_background1"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="5dp"
+            android:layout_weight="1"/>
+        <com.github.iielse.switchbutton.SwitchView
+            android:id="@+id/flag_switch"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center_vertical" />
+
+    </LinearLayout>
+</merge>

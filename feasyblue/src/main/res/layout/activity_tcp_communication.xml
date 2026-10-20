@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F0F0F0">
+
+    <include
+        android:id="@+id/header"
+        layout="@layout/header"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/receive_data_atv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="接收"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/guideline15"
+        app:layout_constraintTop_toBottomOf="@+id/header"
+        tools:ignore="MissingConstraints" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="@+id/guideline14"
+        app:layout_constraintTop_toBottomOf="@+id/header">
+
+        <Button
+            android:id="@+id/clearButton"
+            style="@style/throughput_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:text="@string/clear"
+            android:textColor="@color/throughput_text_color" />
+
+        <Button
+            android:id="@+id/upgradeButton"
+            style="@style/throughput_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginRight="20dp"
+            android:layout_toLeftOf="@+id/clearButton"
+            android:enabled="false"
+            android:text="@string/upgrade"
+            android:visibility="gone"
+            android:textColor="@color/throughput_text_color" />
+
+    </RelativeLayout>
+
+    <EditText
+        android:id="@+id/receive_data_et"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/white"
+        android:gravity="top"
+        app:layout_constraintBottom_toTopOf="@+id/guideline17"
+        app:layout_constraintEnd_toStartOf="@+id/guideline14"
+        app:layout_constraintStart_toStartOf="@+id/guideline15"
+        app:layout_constraintTop_toBottomOf="@+id/receive_data_atv" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/send_data_atv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="发送"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="@+id/guideline15"
+        app:layout_constraintTop_toBottomOf="@+id/receive_data_et"
+        tools:ignore="MissingConstraints" />
+
+    <EditText
+        android:id="@+id/send_data_et"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="@color/white"
+        android:gravity="top"
+        app:layout_constraintBottom_toTopOf="@+id/guideline18"
+        app:layout_constraintEnd_toStartOf="@+id/guideline14"
+        app:layout_constraintStart_toStartOf="@+id/guideline15"
+        app:layout_constraintTop_toBottomOf="@+id/send_data_atv" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/openAirCommandBtn"
+        style="@style/throughput_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp_8"
+        android:enabled="false"
+        android:text="@string/activate_aerial_command"
+        android:visibility="gone"
+        android:textColor="@color/throughput_text_color"
+        app:layout_constraintStart_toStartOf="@+id/guideline15"
+        app:layout_constraintTop_toBottomOf="@+id/guideline18" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/closeAirCommandBtn"
+        style="@style/throughput_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="@dimen/dp_8"
+        android:enabled="false"
+        android:text="@string/close_aerial_command"
+        android:visibility="gone"
+        android:textColor="@color/throughput_text_color"
+        app:layout_constraintStart_toEndOf="@+id/openAirCommandBtn"
+        app:layout_constraintTop_toBottomOf="@+id/guideline18" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/send_data_acb"
+        style="@style/throughput_btn"
+        android:text="发送"
+        app:layout_constraintEnd_toEndOf="@+id/guideline14"
+        app:layout_constraintTop_toBottomOf="@+id/guideline18"
+        tools:ignore="MissingConstraints" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.95" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.75" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.45" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.8" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

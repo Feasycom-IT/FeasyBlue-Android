@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F0F0F0"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical">
+
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/spp_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="45dp"
+        android:background="@color/black"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/spp_test_toolbarTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:singleLine="true"
+                android:ellipsize="end"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+        </LinearLayout>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.64" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.81" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.9015048" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.05" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.95" />
+
+    <TextView
+        android:id="@+id/spp_test_success_tv"
+        style="@style/throughputText"
+        android:layout_marginTop="10dp"
+        android:textSize="@dimen/sp_14"
+        android:text="@string/success_count"
+        app:layout_constraintStart_toStartOf="@+id/guideline12"
+        app:layout_constraintTop_toBottomOf="@+id/spp_toolbar" />
+
+    <TextView
+        android:id="@+id/spp_test_success_count_tv"
+        style="@style/throughputText"
+        android:layout_marginTop="10dp"
+        android:textSize="@dimen/sp_14"
+        android:ems="10"
+        android:text="0"
+        app:layout_constraintStart_toEndOf="@+id/spp_test_success_tv"
+        app:layout_constraintTop_toBottomOf="@+id/spp_toolbar" />
+
+    <TextView
+        android:id="@+id/spp_test_fail_tv"
+        style="@style/throughputText"
+        android:layout_marginTop="10dp"
+        android:textSize="@dimen/sp_14"
+        android:text="@string/fail_count"
+        app:layout_constraintStart_toStartOf="@+id/guideline12"
+        app:layout_constraintTop_toBottomOf="@+id/spp_test_success_tv" />
+
+    <TextView
+        android:id="@+id/spp_test_fail_count_tv"
+        style="@style/throughputText"
+        android:layout_marginTop="10dp"
+        android:textSize="@dimen/sp_14"
+        android:ems="10"
+        android:text="0"
+        android:textColor="@color/red"
+        app:layout_constraintStart_toEndOf="@+id/spp_test_fail_tv"
+        app:layout_constraintTop_toBottomOf="@+id/spp_test_success_tv" />
+
+    <EditText
+        android:id="@+id/spp_receive_et"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/white"
+        android:focusable="false"
+        android:gravity="top"
+        android:textSize="@dimen/sp_12"
+        app:layout_constraintBottom_toTopOf="@+id/guideline"
+        app:layout_constraintEnd_toStartOf="@+id/guideline13"
+        app:layout_constraintStart_toStartOf="@+id/guideline12"
+        app:layout_constraintTop_toBottomOf="@+id/spp_test_fail_tv" />
+
+    <EditText
+        android:id="@+id/spp_reconnect_time_et"
+        android:layout_width="@dimen/dp_80"
+        android:layout_height="@dimen/dp_40"
+        android:layout_marginTop="8dp"
+        android:autofillHints="100"
+        android:background="@drawable/edit_background"
+        android:gravity="end|center"
+        android:hint="0"
+        android:inputType="number"
+        android:maxLength="5"
+        android:paddingEnd="10dp"
+        app:layout_constraintStart_toStartOf="@+id/guideline12"
+        app:layout_constraintTop_toBottomOf="@+id/spp_receive_et" />
+
+    <TextView
+        android:id="@+id/spp_reconnect_time_tv"
+        style="@style/throughputText"
+        android:layout_marginStart="3dp"
+        android:text="@string/connect_s"
+        app:layout_constraintBottom_toBottomOf="@+id/spp_reconnect_time_et"
+        app:layout_constraintStart_toEndOf="@+id/spp_reconnect_time_et"
+        app:layout_constraintTop_toTopOf="@+id/spp_reconnect_time_et"/>
+
+    <EditText
+        android:id="@+id/spp_disconnect_time_et"
+        android:layout_width="@dimen/dp_80"
+        android:layout_height="@dimen/dp_40"
+        android:layout_marginEnd="3dp"
+        android:layout_marginTop="8dp"
+        android:autofillHints="100"
+        android:background="@drawable/edit_background"
+        android:gravity="end|center"
+        android:hint="0"
+        android:inputType="number"
+        android:maxLength="5"
+        android:paddingEnd="10dp"
+        app:layout_constraintEnd_toStartOf="@+id/spp_disconnect_time_tv"
+        app:layout_constraintTop_toBottomOf="@+id/spp_receive_et" />
+
+    <TextView
+        android:id="@+id/spp_disconnect_time_tv"
+        style="@style/throughputText"
+        android:text="@string/disconnect_s"
+        app:layout_constraintBottom_toBottomOf="@+id/spp_reconnect_time_et"
+        app:layout_constraintEnd_toEndOf="@+id/guideline13"
+        app:layout_constraintTop_toTopOf="@+id/spp_reconnect_time_et"/>
+
+    <EditText
+        android:id="@+id/spp_send_edit_et"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:background="@android:color/white"
+        android:gravity="top"
+        android:inputType="textMultiLine"
+        app:layout_constraintBottom_toTopOf="@+id/guideline22"
+        app:layout_constraintEnd_toStartOf="@+id/guideline13"
+        app:layout_constraintStart_toStartOf="@+id/guideline12"
+        app:layout_constraintTop_toBottomOf="@+id/spp_reconnect_time_et" />
+
+    <TextView
+        android:id="@+id/hex_tv"
+        style="@style/throughputText"
+        android:text="HEX"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline12"
+        app:layout_constraintTop_toTopOf="@+id/guideline22" />
+
+    <com.github.iielse.switchbutton.SwitchView
+        android:id="@+id/spp_hex_check"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/hex_tv"
+        app:layout_constraintStart_toEndOf="@+id/hex_tv"
+        app:layout_constraintTop_toTopOf="@+id/hex_tv"
+        tools:ignore="MissingClass,MissingConstraints" />
+
+    <Button
+        android:id="@+id/spp_start_test_btn"
+        style="@style/test_btn"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/startTest"
+        android:layout_marginEnd="10dp"
+        android:textAllCaps="false"
+        android:textColor="#212121"
+        app:layout_constraintTop_toTopOf="@+id/guideline22"
+        app:layout_constraintEnd_toStartOf="@+id/spp_stop_test_btn"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <Button
+        android:id="@+id/spp_stop_test_btn"
+        style="@style/test_btn"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/stopTest"
+        android:layout_marginEnd="10dp"
+        android:textAllCaps="false"
+        android:textColor="#212121"
+        app:layout_constraintTop_toTopOf="@+id/guideline22"
+        app:layout_constraintEnd_toStartOf="@+id/spp_clear_data_btn"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <Button
+        android:id="@+id/spp_clear_data_btn"
+        style="@style/test_btn"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="10dp"
+        android:text="@string/clear"
+        android:textAllCaps="false"
+        android:textColor="#212121"
+        app:layout_constraintTop_toTopOf="@+id/guideline22"
+        app:layout_constraintEnd_toStartOf="@+id/spp_send_file_test_btn"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <Button
+        android:id="@+id/spp_send_file_test_btn"
+        style="@style/test_btn"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/select_file"
+        android:textAllCaps="false"
+        android:textColor="#212121"
+        app:layout_constraintTop_toTopOf="@+id/guideline22"
+        app:layout_constraintEnd_toStartOf="@+id/guideline13"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

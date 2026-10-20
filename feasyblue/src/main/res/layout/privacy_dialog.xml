@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/userAndPrivacyAgreement"
+        android:layout_marginTop="25dp"
+        android:gravity="center_horizontal"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"/>
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:scrollbars="vertical"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/throughput_text_color"
+            android:text="@string/userAndPrivacyResume"/>
+
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/contentTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/grey"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"/>
+
+    <Button
+        android:id="@+id/confirm_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/agree"
+        android:textAllCaps="false"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:textColor="@color/white"
+        android:background="@drawable/confirm_button_shape"/>
+
+    <Button
+        android:id="@+id/disagree_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/disagree"
+        android:textAllCaps="false"
+        android:textColor="@color/text_color_grey"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:background="@drawable/disagree_button_shape"/>
+
+</LinearLayout>

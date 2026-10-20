@@ -1,0 +1,6 @@
+# 通用规则见仓库根 .gitignore，这里只放本模块特有项
+
+/build
+
+# assembleRelease 的输出目录（APK 由根规则 *.apk 忽略，这里补上元数据等）
+release/

@@ -1,0 +1,647 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/paramModifyToolbar"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="45dp"
+        android:background="@color/black"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/paramModifyTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textColor="@color/white" />
+
+        <Button
+            android:id="@+id/paramModifyStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:background="@null"
+            android:paddingStart="10dp"
+            android:textAllCaps="false"
+            tools:ignore="RtlHardcoded" />
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <!-- 修改了ScrollView的约束，底部约束到parent，顶部约束到Toolbar底部 -->
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/paramModifyToolbar">
+
+        <!-- 修改了LinearLayout的宽度为match_parent -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- 以下内容保持不变 -->
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:orientation="horizontal"
+                tools:ignore="MissingConstraints">
+
+                <TextView
+                    android:id="@+id/name_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/deviceName"
+                    android:textColor="@color/black" />
+
+                <EditText
+                    android:id="@+id/name_para_et"
+                    android:layout_width="0dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/edit_background1"
+                    android:maxLength="29" />
+
+                <com.github.iielse.switchbutton.SwitchView
+                    android:id="@+id/name_switch"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center_vertical" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:orientation="horizontal"
+                tools:ignore="MissingConstraints">
+
+                <TextView
+                    android:id="@+id/pin_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/pin"
+                    android:textColor="@color/black" />
+
+                <EditText
+                    android:id="@+id/pin_para_et"
+                    android:layout_width="0dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/edit_background1"
+                    android:inputType="number"
+                    android:maxLength="6" />
+
+                <com.github.iielse.switchbutton.SwitchView
+                    android:id="@+id/pin_switch"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center_vertical" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:orientation="horizontal"
+                tools:ignore="MissingConstraints">
+
+                <TextView
+                    android:id="@+id/baud_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/baud"
+                    android:textColor="@color/black" />
+
+                <EditText
+                    android:id="@+id/baud_para_et"
+                    android:layout_width="0dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/edit_background1"
+                    android:inputType="number"
+                    android:maxLength="6" />
+
+                <com.github.iielse.switchbutton.SwitchView
+                    android:id="@+id/baud_switch"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center_vertical" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="#eeeeee"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:text="@string/customCommand"
+                    android:textColor="@color/black"
+                    android:textSize="20sp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/custom_command_ll1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="AT+ "
+                    android:textColor="@color/black" />
+
+                <EditText
+                    android:id="@+id/custom_command_et1"
+                    android:layout_width="100dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/edit_background1"
+                    android:maxLength="29" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text=" = "
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+                <!--   之前默认是输入29个长度     android:maxLength="29"-->
+                <EditText
+                    android:id="@+id/custom_parameter_et1"
+                    android:layout_width="0dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/edit_background1"
+                    android:maxLength="29" />
+
+                <com.github.iielse.switchbutton.SwitchView
+                    android:id="@+id/custom_switch1"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center_vertical" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/custom_command_ll2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="AT+ "
+                    android:textColor="@color/black" />
+
+                <EditText
+                    android:id="@+id/custom_command_et2"
+                    android:layout_width="100dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/edit_background1"
+                    android:maxLength="29" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text=" = "
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+                <!--   之前默认是输入29个长度     android:maxLength="29"-->
+                <EditText
+                    android:id="@+id/custom_parameter_et2"
+                    android:layout_width="0dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/edit_background1"
+                    android:maxLength="29" />
+
+                <com.github.iielse.switchbutton.SwitchView
+                    android:id="@+id/custom_switch2"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center_vertical" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/custom_command_ll3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="AT+ "
+                    android:textColor="@color/black" />
+
+                <EditText
+                    android:id="@+id/custom_command_et3"
+                    android:layout_width="100dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/edit_background1"
+                    android:maxLength="29" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text=" = "
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+                <!--   之前默认是输入29个长度     android:maxLength="29"-->
+                <EditText
+                    android:id="@+id/custom_parameter_et3"
+                    android:layout_width="0dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/edit_background1"
+                    android:maxLength="29" />
+
+                <com.github.iielse.switchbutton.SwitchView
+                    android:id="@+id/custom_switch3"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center_vertical" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/custom_command_ll4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="AT+ "
+                    android:textColor="@color/black" />
+
+                <EditText
+                    android:id="@+id/custom_command_et4"
+                    android:layout_width="100dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/edit_background1"
+                    android:maxLength="29" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text=" = "
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+                <!--   之前默认是输入29个长度     android:maxLength="29"-->
+                <EditText
+                    android:id="@+id/custom_parameter_et4"
+                    android:layout_width="0dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/edit_background1"
+                    android:maxLength="29" />
+
+                <com.github.iielse.switchbutton.SwitchView
+                    android:id="@+id/custom_switch4"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center_vertical" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/custom_command_ll5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="AT+ "
+                    android:textColor="@color/black" />
+
+                <EditText
+                    android:id="@+id/custom_command_et5"
+                    android:layout_width="100dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/edit_background1"
+                    android:maxLength="29" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text=" = "
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+                <!--   之前默认是输入29个长度     android:maxLength="29"-->
+                <EditText
+                    android:id="@+id/custom_parameter_et5"
+                    android:layout_width="0dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/edit_background1"
+                    android:maxLength="29" />
+
+                <com.github.iielse.switchbutton.SwitchView
+                    android:id="@+id/custom_switch5"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center_vertical" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/custom_command_ll6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="AT+ "
+                    android:textColor="@color/black" />
+
+                <EditText
+                    android:id="@+id/custom_command_et6"
+                    android:layout_width="100dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/edit_background1"
+                    android:maxLength="29" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text=" = "
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+                <!--   之前默认是输入29个长度     android:maxLength="29"-->
+                <EditText
+                    android:id="@+id/custom_parameter_et6"
+                    android:layout_width="0dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/edit_background1"
+                    android:maxLength="29" />
+
+                <com.github.iielse.switchbutton.SwitchView
+                    android:id="@+id/custom_switch6"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center_vertical" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/custom_command_ll7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="AT+ "
+                    android:textColor="@color/black" />
+
+                <EditText
+                    android:id="@+id/custom_command_et7"
+                    android:layout_width="100dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/edit_background1"
+                    android:maxLength="29" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text=" = "
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+                <!--   之前默认是输入29个长度     android:maxLength="29"-->
+                <EditText
+                    android:id="@+id/custom_parameter_et7"
+                    android:layout_width="0dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/edit_background1"
+                    android:maxLength="29" />
+
+                <com.github.iielse.switchbutton.SwitchView
+                    android:id="@+id/custom_switch7"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center_vertical" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/custom_command_ll8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="AT+ "
+                    android:textColor="@color/black" />
+
+                <EditText
+                    android:id="@+id/custom_command_et8"
+                    android:layout_width="100dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/edit_background1"
+                    android:maxLength="29" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text=" = "
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+                <!--   之前默认是输入29个长度     android:maxLength="29"-->
+                <EditText
+                    android:id="@+id/custom_parameter_et8"
+                    android:layout_width="0dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/edit_background1"
+                    android:maxLength="29" />
+
+                <com.github.iielse.switchbutton.SwitchView
+                    android:id="@+id/custom_switch8"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center_vertical" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/custom_command_ll9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="AT# "
+                    android:visibility="gone"
+                    android:textColor="@color/black" />
+
+                <EditText
+                    android:id="@+id/custom_command_et9"
+                    android:layout_width="100dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/edit_background1"
+                    android:maxLength="29" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text=" = "
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+                <!--   之前默认是输入29个长度     android:maxLength="29"-->
+                <EditText
+                    android:id="@+id/custom_parameter_et9"
+                    android:layout_width="0dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/edit_background1"
+                    android:maxLength="29" />
+
+                <com.github.iielse.switchbutton.SwitchView
+                    android:id="@+id/custom_switch9"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center_vertical" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout><!--</ScrollView>-->
