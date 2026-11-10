@@ -1,8 +1,8 @@
 # FeasyBlue Android SDK Integration Guide (AAR)
 
-> **Deliverables**: `FeasyBlueLibrary-3.5.6.3.aar` (both `.so` files for `arm64-v8a` / `armeabi-v7a` are bundled inside) + demo APK + integration documents
+> **Deliverables**: `FeasyBlueLibrary-3.5.6.4.aar` (both `.so` files for `arm64-v8a` / `armeabi-v7a` are bundled inside) + demo APK + integration documents
 > **Delivery package version**: `3.5.7.5`
-> **SDK BuildConfig**: `3.5.6.3 / 63`
+> **SDK BuildConfig**: `3.5.6.4 / 64`
 > **Package name**: `com.feasycom`
 > **Minimum OS version**: Android 9 (API 28)
 > **Supported ABIs**: `arm64-v8a`, `armeabi-v7a`
@@ -49,7 +49,7 @@ FeasyBlue-Android/
 ├── feasyblue/                     # Application-layer source
 │   ├── build.gradle
 │   ├── libs/
-│   │   └── FeasyBlueLibrary-3.5.6.3.aar   # bundles the .so for both ABIs
+│   │   └── FeasyBlueLibrary-3.5.6.4.aar   # bundles the .so for both ABIs
 │   └── src/main/...
 ├── build.gradle
 ├── settings.gradle
@@ -62,7 +62,7 @@ Purpose of each file:
 
 | File | Purpose |
 |---|---|
-| `feasyblue/libs/FeasyBlueLibrary-3.5.6.3.aar` | Java/Kotlin classes plus the native libraries for `arm64-v8a` and `armeabi-v7a` |
+| `feasyblue/libs/FeasyBlueLibrary-3.5.6.4.aar` | Java/Kotlin classes plus the native libraries for `arm64-v8a` and `armeabi-v7a` |
 | `apk/FeasyBlue3.5.7.5.apk` | Demo APK that can be installed directly |
 | `README.md` | Repository notes, APK size, and SHA-256 |
 | `docs/FeasyBlue使用文档.md` | Chinese integration guide |
@@ -107,7 +107,7 @@ The following steps copy the SDK from the repository's `feasyblue/libs/` into th
 ```text
 app/
 └── libs/
-    └── FeasyBlueLibrary-3.5.6.3.aar
+    └── FeasyBlueLibrary-3.5.6.4.aar
 ```
 
 `app/build.gradle`:
@@ -123,7 +123,7 @@ android {
 }
 
 dependencies {
-    implementation files('libs/FeasyBlueLibrary-3.5.6.3.aar')
+    implementation files('libs/FeasyBlueLibrary-3.5.6.4.aar')
 
     // The AAR has no POM; the integrator must provide these dependencies.
     implementation "org.jetbrains.kotlin:kotlin-stdlib:2.0.0"
@@ -1291,7 +1291,7 @@ Package: `com.feasycom.wifi.BwCommont`
 
 | Library version | Description |
 |---|---|
-| `3.5.6.3` | Current AAR version (SDK BuildConfig `3.5.6.3 / 63`); the demo app is `3.5.7.5`. Includes BLE/SPP OTA, WiFi/BW provisioning, TCP/BW256B, and cloud firmware download. The `.so` files are 16 KB page aligned. |
+| `3.5.6.4` | Current AAR version (SDK BuildConfig `3.5.6.4 / 64`); the demo app is `3.5.7.5`. Includes BLE/SPP OTA, WiFi/BW provisioning, TCP/BW256B, and cloud firmware download. The `.so` files are 16 KB page aligned. |
 
 > For historical changes, refer to the `README.md` in the project source repository. This delivery package does not include the SDK source.
 
@@ -1299,7 +1299,7 @@ Package: `com.feasycom.wifi.BwCommont`
 
 ## Appendix: Minimal Integration Checklist
 
-- [ ] `FeasyBlueLibrary-3.5.6.3.aar` is in `app/libs`.
+- [ ] `FeasyBlueLibrary-3.5.6.4.aar` is in `app/libs`.
 - [ ] `libFeasyBlueLibrary.so` is not excluded in `packagingOptions` (the AAR already bundles both ABIs).
 - [ ] The `.so` files were not copied separately (the AAR already contains them).
 - [ ] `abiFilters` contains only `arm64-v8a` and `armeabi-v7a`.
