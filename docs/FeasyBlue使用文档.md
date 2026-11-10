@@ -1,10 +1,10 @@
-# FeasyBlue Android SDK 接入文档（Jar + SO 版）
+# FeasyBlue Android SDK 接入文档（AAR 版）
 
-> **交付物**：`feasyblue.jar` + `libFeasyBlueLibrary.so` + 示例 APK + 接入文档
+> **交付物**：`FeasyBlueLibrary-3.5.6.3.aar`（内含 arm64-v8a / armeabi-v7a 的 .so）+ 示例 APK + 接入文档
 > **交付包版本**：`3.5.7.5`
-> **SDK BuildConfig**：`3.5.6.2 / 62`
+> **SDK BuildConfig**：`3.5.6.3 / 63`
 > **包名**：`com.feasycom`
-> **最低系统版本**：Android 8.0（API 26）
+> **最低系统版本**：Android 9（API 28）
 > **支持 ABI**：`arm64-v8a`、`armeabi-v7a`
 > **Demo 最低版本**：Android 10（API 29）
 >
@@ -49,11 +49,7 @@ FeasyBlue-Android/
 ├── feasyblue/                     # 应用层源码
 │   ├── build.gradle
 │   ├── libs/
-│   │   ├── feasyblue.jar
-│   │   ├── arm64-v8a/
-│   │   │   └── libFeasyBlueLibrary.so
-│   │   └── armeabi-v7a/
-│   │       └── libFeasyBlueLibrary.so
+│   │   └── FeasyBlueLibrary-3.5.6.3.aar   # 内含两个 ABI 的 .so
 │   └── src/main/...
 ├── build.gradle
 ├── settings.gradle
@@ -66,23 +62,22 @@ FeasyBlue-Android/
 
 | 文件 | 作用 |
 |---|---|
-| `feasyblue/libs/feasyblue.jar` | SDK 的 Java/Kotlin 类 |
-| `feasyblue/libs/<abi>/libFeasyBlueLibrary.so` | JNI 加密、DFU 解析、FACP 等原生能力 |
+| `feasyblue/libs/FeasyBlueLibrary-3.5.6.3.aar` | SDK 的 Java/Kotlin 类 + JNI 原生库（arm64-v8a、armeabi-v7a） |
 | `apk/FeasyBlue3.5.7.5.apk` | 示例 APK，可直接安装体验 |
 | `README.md` | 仓库说明、APK 大小和 SHA-256 |
 | `docs/FeasyBlue使用文档.md` | 本文 |
 | `docs/FeasyBlue_Integration_Guide_EN.md` | English integration guide |
-| `feasyblue` | 已接入 jar + so 的应用工程，可直接用 Android Studio 打开 |
+| `feasyblue` | 已接入 AAR 的应用工程，可直接用 Android Studio 打开 |
 
 注意：
 
-- **jar 和 so 必须一起使用**。只放 jar 会在运行时抛 `UnsatisfiedLinkError`。
-- jar 是普通 class jar，**不是 fat jar**，第三方依赖不会自动带进来，接入方需要按第 3.1 节补充依赖。
+- **AAR 内已包含两个 ABI 的 `.so`**，外部接入方只需要拷贝这一个 AAR 到自己的 `app/libs/`，不需要再单独拷贝 so。
+- AAR 不是 fat AAR，第三方依赖不会自动带进来，接入方需要按第 3.1 节补充依赖。
 - 只支持 `arm64-v8a` / `armeabi-v7a`，x86/x86_64 模拟器无法加载 `.so`。
-- 不要重命名 `libFeasyBlueLibrary.so`。SDK 内部使用 `System.loadLibrary("FeasyBlueLibrary")`，改名后 native 方法找不到。
-- `feasyblue/libs/` 是应用模块使用的 SDK 二进制；外部接入方把这三个文件复制到自己的 `app/libs/` 即可。
-- 本仓库不再单独保留重复的 `sdk/` 目录，SDK 二进制只在 `feasyblue/libs/` 维护一份。
-- 本交付包不包含 `FeasyBlueLibrary` SDK 源码；需要重新生成 jar 时，请回到项目源码工程。
+- 不要重命名 AAR 内的 `libFeasyBlueLibrary.so`。SDK 内部使用 `System.loadLibrary("FeasyBlueLibrary")`，改名后 native 方法找不到。
+- AAR 内的 `.so` 已按 Android 15 要求做 16 KB 页对齐（两个 ABI 的 LOAD 段 `p_align = 0x4000`）。
+- AAR 内置 `proguard.txt`（consumer rules），接入方开启 R8/ProGuard 无需再手写 JNI keep 规则。
+- 本交付包不包含 `FeasyBlueLibrary` SDK 源码；需要重新生成 AAR 时，请在源码工程执行 `:FeasyBlueLibrary:assembleRelease`。
 
 ---
 
@@ -90,33 +85,29 @@ FeasyBlue-Android/
 
 | 项 | 要求 |
 |---|---|
-| `minSdk` | ≥ 26（Android 8.0） |
-| `compileSdk` | 35（与当前 SDK 源码一致） |
-| `targetSdk` | 35 |
+| `minSdk` | ≥ 28（Android 9） |
+| `compileSdk` | 36（与当前 SDK 源码一致） |
+| `targetSdk` | 36 |
 | Java/Kotlin | Java 17、Kotlin 2.0 工具链 |
 | ABI | `arm64-v8a`、`armeabi-v7a` |
 | 蓝牙 | 普通 BLE 设备需要 BLE；SPP 设备需要经典蓝牙 |
-| Kotlin | jar 内有 Kotlin 类；纯 Java 工程需要加入 `kotlin-stdlib` |
+| Kotlin | AAR 内有 Kotlin 类；纯 Java 工程需要加入 `kotlin-stdlib` |
 | UI | SDK 不含 UI 和资源，界面由 App 自己实现 |
 
-> Demo 的 `minSdk` 是 29，SDK 本体是 26。接入方以自己的 `minSdk` 为准，但不要低于 26。
+> Demo 的 `minSdk` 是 29，SDK 本体是 28。接入方以自己的 `minSdk` 为准，但不要低于 28。
 
 ---
 
 ## 3. 集成步骤
 
-### 3.1 引入 jar 和 so
+### 3.1 引入 AAR
 
-下面是从本仓库 `feasyblue/libs/` 复制到**接入方 App** 的步骤。本仓库的 `feasyblue` 模块内已经包含一份，外部接入方按这个结构放到自己的 `app/libs/`：
+下面是从本仓库 `feasyblue/libs/` 复制到**接入方 App** 的步骤。本仓库的 `feasyblue` 模块内已经包含一份，外部接入方只需要拷贝一个 AAR 到自己的 `app/libs/`：
 
 ```text
 app/
 └── libs/
-    ├── feasyblue.jar
-    ├── arm64-v8a/
-    │   └── libFeasyBlueLibrary.so
-    └── armeabi-v7a/
-        └── libFeasyBlueLibrary.so
+    └── FeasyBlueLibrary-3.5.6.3.aar
 ```
 
 `app/build.gradle`：
@@ -124,23 +115,17 @@ app/
 ```groovy
 android {
     defaultConfig {
-        minSdk 26
+        minSdk 28
         ndk {
             abiFilters 'arm64-v8a', 'armeabi-v7a'
-        }
-    }
-
-    sourceSets {
-        main {
-            jniLibs.srcDirs = ['libs']
         }
     }
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation files('libs/FeasyBlueLibrary-3.5.6.3.aar')
 
-    // jar 不自带 POM，以下依赖需要接入方提供
+    // AAR 不自带 POM，以下依赖需要接入方提供
     implementation "org.jetbrains.kotlin:kotlin-stdlib:2.0.0"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.2"
     implementation "androidx.annotation:annotation:1.3.0"
@@ -282,7 +267,7 @@ SDK 的 `consumer-rules.pro` 目前是空的。你的 App 如果开启 `minifyEn
 ### 3.5 打包注意
 
 - 不要只打包 `arm64-v8a` 后又把 `abiFilters` 写成 `armeabi-v7a`；ABI 要和实际 so 一致。
-- 不要在 `packagingOptions` 中排除 `libFeasyBlueLibrary.so`。
+- AAR 内已经包含两个 ABI 的 so，不要再用 `packagingOptions` 排除 `libFeasyBlueLibrary.so`。
 - 如果使用 App Bundle，确认 `jniLibs` 没有被裁剪；发布前检查 APK/AAB 内是否包含两个 ABI 的 so。
 - 需要排查 native 崩溃时，可以保留符号：
 
@@ -1237,7 +1222,7 @@ CharSequence message;
    - 是否使用了 `connectToOTAWithFactory` / `connectToVerifyOTAWithFactory`。
 
 4. **`UnsatisfiedLinkError`**
-   - 是否只放了 jar，没有放 `libFeasyBlueLibrary.so`；
+   - AAR 是否正常引入（是否只解压出 `classes.jar`，丢了 AAR 内的 `jni/`）；
    - so 是否放在正确的 ABI 目录；
    - 是否重命名了 so；
    - `abiFilters` 是否与 so 的 ABI 一致；
@@ -1306,7 +1291,7 @@ CharSequence message;
 
 | 库版本 | 说明 |
 |---|---|
-| `3.5.7.5` | 当前交付包/示例 App 版本；SDK BuildConfig 为 `3.5.6.2`，包含 BLE/SPP OTA、WiFi/BW 配网、TCP/BW256B、云端固件下载 |
+| `3.5.6.3` | 当前 AAR 版本（SDK BuildConfig `3.5.6.3 / 63`）；示例 App 版本为 `3.5.7.5`。包含 BLE/SPP OTA、WiFi/BW 配网、TCP/BW256B、云端固件下载；`.so` 已做 16 KB 页对齐 |
 
 > 历史版本的变更请参考项目源码仓库的 `README.md` 版本记录；本交付包不包含 SDK 源码。
 
@@ -1314,9 +1299,9 @@ CharSequence message;
 
 ## 附：最小接入检查清单
 
-- [ ] `feasyblue.jar` 已放入 `app/libs`
-- [ ] 两个 ABI 的 `libFeasyBlueLibrary.so` 已放入 `app/libs/<abi>/`
-- [ ] `jniLibs.srcDirs = ['libs']`
+- [ ] `FeasyBlueLibrary-3.5.6.3.aar` 已放入 `app/libs`
+- [ ] 未再用 `packagingOptions` 排除 `libFeasyBlueLibrary.so`（AAR 已包含两个 ABI）
+- [ ] 未再单独拷贝 `.so`（AAR 已包含，重复拷贝会冲突）
 - [ ] `abiFilters` 只包含 `arm64-v8a`、`armeabi-v7a`
 - [ ] 已声明 `com.feasycom.ble.service.OTAService`
 - [ ] 已声明 `com.feasycom.spp.service.OTAService`

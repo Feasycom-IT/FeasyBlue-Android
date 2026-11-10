@@ -1,10 +1,10 @@
-# FeasyBlue Android SDK Integration Guide (JAR + SO)
+# FeasyBlue Android SDK Integration Guide (AAR)
 
-> **Deliverables**: `feasyblue.jar` + `libFeasyBlueLibrary.so` + demo APK + integration documents
+> **Deliverables**: `FeasyBlueLibrary-3.5.6.3.aar` (both `.so` files for `arm64-v8a` / `armeabi-v7a` are bundled inside) + demo APK + integration documents
 > **Delivery package version**: `3.5.7.5`
-> **SDK BuildConfig**: `3.5.6.2 / 62`
+> **SDK BuildConfig**: `3.5.6.3 / 63`
 > **Package name**: `com.feasycom`
-> **Minimum OS version**: Android 8.0 (API 26)
+> **Minimum OS version**: Android 9 (API 28)
 > **Supported ABIs**: `arm64-v8a`, `armeabi-v7a`
 > **Minimum demo version**: Android 10 (API 29)
 >
@@ -49,11 +49,7 @@ FeasyBlue-Android/
 ├── feasyblue/                     # Application-layer source
 │   ├── build.gradle
 │   ├── libs/
-│   │   ├── feasyblue.jar
-│   │   ├── arm64-v8a/
-│   │   │   └── libFeasyBlueLibrary.so
-│   │   └── armeabi-v7a/
-│   │       └── libFeasyBlueLibrary.so
+│   │   └── FeasyBlueLibrary-3.5.6.3.aar   # bundles the .so for both ABIs
 │   └── src/main/...
 ├── build.gradle
 ├── settings.gradle
@@ -66,23 +62,22 @@ Purpose of each file:
 
 | File | Purpose |
 |---|---|
-| `feasyblue/libs/feasyblue.jar` | Java/Kotlin classes for the SDK |
-| `feasyblue/libs/<abi>/libFeasyBlueLibrary.so` | Native capabilities such as JNI encryption, DFU parsing, and FACP |
+| `feasyblue/libs/FeasyBlueLibrary-3.5.6.3.aar` | Java/Kotlin classes plus the native libraries for `arm64-v8a` and `armeabi-v7a` |
 | `apk/FeasyBlue3.5.7.5.apk` | Demo APK that can be installed directly |
 | `README.md` | Repository notes, APK size, and SHA-256 |
 | `docs/FeasyBlue使用文档.md` | Chinese integration guide |
 | `docs/FeasyBlue_Integration_Guide_EN.md` | This English integration guide |
-| `feasyblue` | Application project already integrated with the JAR and SO files; can be opened directly in Android Studio |
+| `feasyblue` | Application project already integrated with the AAR; can be opened directly in Android Studio |
 
 Notes:
 
-- **The JAR and SO files must be used together.** Using the JAR alone causes an `UnsatisfiedLinkError` at runtime.
-- The JAR is a plain class JAR, **not a fat JAR**. Third-party dependencies are not bundled automatically; integrators must add the dependencies described in Section 3.1.
+- **Both native libraries are bundled inside the AAR.** Integrators only need to copy this single AAR into their `app/libs/`; do not copy the `.so` files separately.
+- The AAR is **not a fat AAR**. Third-party dependencies are not bundled automatically; integrators must add the dependencies described in Section 3.1.
 - Only `arm64-v8a` and `armeabi-v7a` are supported. x86/x86_64 emulators cannot load the `.so` files.
-- Do not rename `libFeasyBlueLibrary.so`. The SDK calls `System.loadLibrary("FeasyBlueLibrary")` internally; native methods will not be found if the file is renamed.
-- `feasyblue/libs/` contains the SDK binary used by the application module. External integrators can copy these three files into their own `app/libs/`.
-- The repository no longer keeps a duplicate `sdk/` directory; the SDK binary is maintained only under `feasyblue/libs/`.
-- This delivery package does not include the `FeasyBlueLibrary` SDK source. To regenerate the JAR, use the project source repository.
+- Do not rename `libFeasyBlueLibrary.so` inside the AAR. The SDK calls `System.loadLibrary("FeasyBlueLibrary")` internally; native methods will not be found if the file is renamed.
+- The bundled `.so` files are **16 KB page aligned** as required by Android 15 (all LOAD segments have `p_align = 0x4000`).
+- The AAR ships consumer ProGuard rules (`proguard.txt`); no additional JNI keep rules are required when R8 is enabled.
+- This delivery package does not include the `FeasyBlueLibrary` SDK source. To regenerate the AAR, run `:FeasyBlueLibrary:assembleRelease` in the source project.
 
 ---
 
@@ -90,33 +85,29 @@ Notes:
 
 | Item | Requirement |
 |---|---|
-| `minSdk` | 26 or higher (Android 8.0) |
-| `compileSdk` | 35 (matches the current SDK source) |
-| `targetSdk` | 35 |
+| `minSdk` | 28 or higher (Android 9) |
+| `compileSdk` | 36 (matches the current SDK source) |
+| `targetSdk` | 36 |
 | Java/Kotlin | Java 17 and the Kotlin 2.0 toolchain |
 | ABI | `arm64-v8a`, `armeabi-v7a` |
 | Bluetooth | Standard BLE devices require BLE; SPP devices require Classic Bluetooth |
-| Kotlin | The JAR contains Kotlin classes; Java-only projects must add `kotlin-stdlib` |
+| Kotlin | The AAR contains Kotlin classes; Java-only projects must add `kotlin-stdlib` |
 | UI | The SDK contains no UI or resources; the app must implement its own UI |
 
-> The demo uses `minSdk` 29, while the SDK itself supports 26. Use your own `minSdk`, but do not go below 26.
+> The demo uses `minSdk` 29, while the SDK itself supports 28. Use your own `minSdk`, but do not go below 28.
 
 ---
 
 ## 3. Integration Steps
 
-### 3.1 Add the JAR and SO Files
+### 3.1 Add the AAR
 
-The following steps copy the SDK from the repository's `feasyblue/libs/` into the integrator's app. The repository's `feasyblue` module already contains a copy; external integrators should place the files in their own `app/libs/` as shown:
+The following steps copy the SDK from the repository's `feasyblue/libs/` into the integrator's app. The repository's `feasyblue` module already contains a copy; external integrators only need to copy this single AAR into their own `app/libs/`:
 
 ```text
 app/
 └── libs/
-    ├── feasyblue.jar
-    ├── arm64-v8a/
-    │   └── libFeasyBlueLibrary.so
-    └── armeabi-v7a/
-        └── libFeasyBlueLibrary.so
+    └── FeasyBlueLibrary-3.5.6.3.aar
 ```
 
 `app/build.gradle`:
@@ -124,23 +115,17 @@ app/
 ```groovy
 android {
     defaultConfig {
-        minSdk 26
+        minSdk 28
         ndk {
             abiFilters 'arm64-v8a', 'armeabi-v7a'
-        }
-    }
-
-    sourceSets {
-        main {
-            jniLibs.srcDirs = ['libs']
         }
     }
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation files('libs/FeasyBlueLibrary-3.5.6.3.aar')
 
-    // The JAR has no POM; the integrator must provide these dependencies.
+    // The AAR has no POM; the integrator must provide these dependencies.
     implementation "org.jetbrains.kotlin:kotlin-stdlib:2.0.0"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.2"
     implementation "androidx.annotation:annotation:1.3.0"
@@ -282,7 +267,7 @@ Without these rules, a release build may compile but fail at runtime with `NoSuc
 ### 3.5 Packaging Notes
 
 - Do not package only `arm64-v8a` while setting `abiFilters` to `armeabi-v7a`. The configured ABIs must match the actual SO files.
-- Do not exclude `libFeasyBlueLibrary.so` in `packagingOptions`.
+- The AAR already bundles both ABIs; do not exclude `libFeasyBlueLibrary.so` in `packagingOptions`.
 - If you use an App Bundle, make sure `jniLibs` are not stripped. Before release, verify that the APK/AAB contains SO files for both ABIs.
 - To debug native crashes, preserve debug symbols:
 
@@ -1237,7 +1222,7 @@ Package: `com.feasycom.wifi.BwCommont`
    - Are you using `connectToOTAWithFactory` / `connectToVerifyOTAWithFactory`?
 
 4. **`UnsatisfiedLinkError`**
-   - Did you copy only the JAR and omit `libFeasyBlueLibrary.so`?
+   - Was the AAR added correctly (e.g. only `classes.jar` was extracted and the `jni/` folder was lost)?
    - Is the SO file in the correct ABI directory?
    - Did you rename the SO file?
    - Do `abiFilters` match the SO ABIs?
@@ -1306,7 +1291,7 @@ Package: `com.feasycom.wifi.BwCommont`
 
 | Library version | Description |
 |---|---|
-| `3.5.7.5` | Current delivery package/demo app version; SDK BuildConfig is `3.5.6.2`. Includes BLE/SPP OTA, WiFi/BW provisioning, TCP/BW256B, and cloud firmware download. |
+| `3.5.6.3` | Current AAR version (SDK BuildConfig `3.5.6.3 / 63`); the demo app is `3.5.7.5`. Includes BLE/SPP OTA, WiFi/BW provisioning, TCP/BW256B, and cloud firmware download. The `.so` files are 16 KB page aligned. |
 
 > For historical changes, refer to the `README.md` in the project source repository. This delivery package does not include the SDK source.
 
@@ -1314,9 +1299,9 @@ Package: `com.feasycom.wifi.BwCommont`
 
 ## Appendix: Minimal Integration Checklist
 
-- [ ] `feasyblue.jar` is in `app/libs`.
-- [ ] `libFeasyBlueLibrary.so` is in `app/libs/<abi>/` for both ABIs.
-- [ ] `jniLibs.srcDirs = ['libs']`.
+- [ ] `FeasyBlueLibrary-3.5.6.3.aar` is in `app/libs`.
+- [ ] `libFeasyBlueLibrary.so` is not excluded in `packagingOptions` (the AAR already bundles both ABIs).
+- [ ] The `.so` files were not copied separately (the AAR already contains them).
 - [ ] `abiFilters` contains only `arm64-v8a` and `armeabi-v7a`.
 - [ ] `com.feasycom.ble.service.OTAService` is declared.
 - [ ] `com.feasycom.spp.service.OTAService` is declared.
