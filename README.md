@@ -14,11 +14,11 @@ feasyblue/libs/FeasyBlueLibrary-3.6.0.0.aar
 
 | 版本        | 文件                                                   | 大小                        | SHA-256                                                            |
 | --------- | ---------------------------------------------------- | ------------------------- | ------------------------------------------------------------------ |
-| `3.5.7.5` | [apk/FeasyBlue3.5.7.5.apk](apk/FeasyBlue3.5.7.5.apk) | 17,380,719 B（约 16.58 MiB） | `613A0244BE545C1D8A1F0CD85211F17B10FB20BF545099303007D9601EFF184C` |
+| `3.6.0.0` | [apk/FeasyBlue3.6.0.0_2026-11-12.apk](apk/FeasyBlue3.6.0.0_2026-11-12.apk) | 16,456,867 B（约 15.69 MiB） | `881DDE5311BC73B21F6A65A8E936DCCCC11496AC1A5687D425148B2DABB7B673` |
 
 - 适用系统：Android 10 及以上（`minSdk 29`）；
 - APK 为当前示例 App 的构建产物，正式发布前请核对签名和版本；
-- 当前应用版本为 `3.5.7.5`，SDK 内部 `BuildConfig.VERSION_NAME` 为 `3.6.0.0`。
+- 当前应用版本为 `3.6.0.0`，SDK 内部 `BuildConfig.VERSION_NAME` 为 `3.6.0.0`。
 
 ---
 
@@ -109,8 +109,8 @@ Windows 使用 `gradlew.bat`。
 | 项                  | 值                         |
 | ------------------ | ------------------------- |
 | applicationId      | `com.feasycom.feasyblue`  |
-| versionName        | `3.5.7.5`                 |
-| versionCode        | `3575`                    |
+| versionName        | `3.6.0.0`                 |
+| versionCode        | `3600`                    |
 | SDK BuildConfig    | `3.6.0.0 / 65`            |
 | SDK minSdk         | `29`（Android 10）           |
 | SDK compileSdk     | `36`                      |
@@ -136,7 +136,7 @@ Windows 使用 `gradlew.bat`。
 ```text
 .
 ├── apk/
-│   └── FeasyBlue3.5.7.5.apk
+│   └── FeasyBlue3.6.0.0_2026-11-12.apk
 ├── docs/
 │   ├── FeasyBlue使用文档.md
 │   └── FeasyBlue_Integration_Guide_EN.md

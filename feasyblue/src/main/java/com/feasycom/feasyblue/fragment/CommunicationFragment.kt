@@ -480,7 +480,7 @@ class CommunicationFragment : BaseFragment<FragmentCommunicationBinding>(), View
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    override fun onCheckedChanged(group: RadioGroup?, checkedId: Int) {
+    override fun onCheckedChanged(group: RadioGroup, checkedId: Int) {
         if (checkEnvironment() == 0) {
             devices.clear()
             mDeviceAdapter?.notifyDataSetChanged()

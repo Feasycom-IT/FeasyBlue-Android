@@ -1,14 +1,14 @@
 # FeasyBlue Android SDK 接入文档（AAR 版）
 
 > **交付物**：`FeasyBlueLibrary-3.6.0.0.aar`（内含 arm64-v8a / armeabi-v7a 的 .so）+ 示例 APK + 接入文档
-> **交付包版本**：`3.5.7.5`
+> **交付包版本**：`3.6.0.0`
 > **SDK BuildConfig**：`3.6.0.0 / 65`
 > **包名**：`com.feasycom`
 > **最低系统版本**：Android 10（API 29）
 > **支持 ABI**：`arm64-v8a`、`armeabi-v7a`
 > **Demo 最低版本**：Android 10（API 29）
 >
-> 本文按当前 FeasyBlue 3.5.7.5 交付包结构整理。示例以 Kotlin 为主，Java 工程可以直接调用同名接口。
+> 本文按当前 FeasyBlue 3.6.0.0 交付包结构整理。示例以 Kotlin 为主，Java 工程可以直接调用同名接口。
 > English version: [FeasyBlue_Integration_Guide_EN.md](FeasyBlue_Integration_Guide_EN.md)
 
 ---
@@ -42,7 +42,7 @@ FeasyBlue 不是一个“万能蓝牙接口”，而是按设备类型分成了�
 ```text
 FeasyBlue-Android/
 ├── apk/
-│   └── FeasyBlue3.5.7.5.apk       # 示例 APK
+│   └── FeasyBlue3.6.0.0_2026-11-12.apk       # 示例 APK
 ├── docs/
 │   ├── FeasyBlue使用文档.md       # 本文（中文）
 │   └── FeasyBlue_Integration_Guide_EN.md   # English version
@@ -63,7 +63,7 @@ FeasyBlue-Android/
 | 文件 | 作用 |
 |---|---|
 | `feasyblue/libs/FeasyBlueLibrary-3.6.0.0.aar` | SDK 的 Java/Kotlin 类 + JNI 原生库（arm64-v8a、armeabi-v7a） |
-| `apk/FeasyBlue3.5.7.5.apk` | 示例 APK，可直接安装体验 |
+| `apk/FeasyBlue3.6.0.0_2026-11-12.apk` | 示例 APK，可直接安装体验 |
 | `README.md` | 仓库说明、APK 大小和 SHA-256 |
 | `docs/FeasyBlue使用文档.md` | 本文 |
 | `docs/FeasyBlue_Integration_Guide_EN.md` | English integration guide |
@@ -1045,7 +1045,7 @@ TCP 是独立于 BLE/SPP 的链路，不要和 `FscBleCentralApi` 混用。页�
 
 ```kotlin
 lifecycleScope.launch(Dispatchers.IO) {
-    val body = DeviceNetwork.downloadDFU("FeasyBlue_3.5.7.5")
+    val body = DeviceNetwork.downloadDFU("FeasyBlue_3.6.0.0")
     val file = File(filesDir, "firmware.dfu")
     body.byteStream().use { input ->
         file.outputStream().use { output ->
@@ -1291,7 +1291,7 @@ CharSequence message;
 
 | 库版本 | 说明 |
 |---|---|
-| `3.6.0.0` | 当前 AAR 版本（SDK BuildConfig `3.6.0.0 / 65`）。破坏性变更：minSdk 提升到 29（Android 10），移除公开方法 `BwNetUtils.isKitkatOrAbove()`。BLE 扫描时长改为可按次指定 `startScan(long timeoutMs)`，`ScannerFilter`（RSSI 阈值 + 设备名包含）现已真正生效。示例 App 仍为 `3.5.7.5` |
+| `3.6.0.0` | 当前 AAR 版本（SDK BuildConfig `3.6.0.0 / 65`）。破坏性变更：minSdk 提升到 29（Android 10），移除公开方法 `BwNetUtils.isKitkatOrAbove()`。BLE 扫描时长改为可按次指定 `startScan(long timeoutMs)`，`ScannerFilter`（RSSI 阈值 + 设备名包含）现已真正生效。示例 App 仍为 `3.6.0.0` |
 | `3.5.6.4` | 上个 AAR 版本（SDK BuildConfig `3.5.6.4 / 64`）；示例 App 版本为 `3.5.7.5`。包含 BLE/SPP OTA、WiFi/BW 配网、TCP/BW256B、云端固件下载；`.so` 已做 16 KB 页对齐 |
 
 > 历史版本的变更请参考项目源码仓库的 `README.md` 版本记录；本交付包不包含 SDK 源码。

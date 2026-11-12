@@ -1,14 +1,14 @@
 # FeasyBlue Android SDK Integration Guide (AAR)
 
 > **Deliverables**: `FeasyBlueLibrary-3.6.0.0.aar` (both `.so` files for `arm64-v8a` / `armeabi-v7a` are bundled inside) + demo APK + integration documents
-> **Delivery package version**: `3.5.7.5`
+> **Delivery package version**: `3.6.0.0`
 > **SDK BuildConfig**: `3.6.0.0 / 65`
 > **Package name**: `com.feasycom`
 > **Minimum OS version**: Android 10 (API 29)
 > **Supported ABIs**: `arm64-v8a`, `armeabi-v7a`
 > **Minimum demo version**: Android 10 (API 29)
 >
-> This guide is based on the current FeasyBlue 3.5.7.5 delivery package. Examples are primarily written in Kotlin; Java projects can call the same APIs.
+> This guide is based on the current FeasyBlue 3.6.0.0 delivery package. Examples are primarily written in Kotlin; Java projects can call the same APIs.
 > Chinese version: [FeasyBlue使用文档.md](FeasyBlue使用文档.md)
 
 ---
@@ -42,7 +42,7 @@ The GitHub repository has the following structure:
 ```text
 FeasyBlue-Android/
 ├── apk/
-│   └── FeasyBlue3.5.7.5.apk       # Demo APK
+│   └── FeasyBlue3.6.0.0_2026-11-12.apk       # Demo APK
 ├── docs/
 │   ├── FeasyBlue使用文档.md       # Chinese guide
 │   └── FeasyBlue_Integration_Guide_EN.md   # This document
@@ -63,7 +63,7 @@ Purpose of each file:
 | File | Purpose |
 |---|---|
 | `feasyblue/libs/FeasyBlueLibrary-3.6.0.0.aar` | Java/Kotlin classes plus the native libraries for `arm64-v8a` and `armeabi-v7a` |
-| `apk/FeasyBlue3.5.7.5.apk` | Demo APK that can be installed directly |
+| `apk/FeasyBlue3.6.0.0_2026-11-12.apk` | Demo APK that can be installed directly |
 | `README.md` | Repository notes, APK size, and SHA-256 |
 | `docs/FeasyBlue使用文档.md` | Chinese integration guide |
 | `docs/FeasyBlue_Integration_Guide_EN.md` | This English integration guide |
@@ -1045,7 +1045,7 @@ TCP is a separate path from BLE/SPP. Do not mix it with `FscBleCentralApi`. Call
 
 ```kotlin
 lifecycleScope.launch(Dispatchers.IO) {
-    val body = DeviceNetwork.downloadDFU("FeasyBlue_3.5.7.5")
+    val body = DeviceNetwork.downloadDFU("FeasyBlue_3.6.0.0")
     val file = File(filesDir, "firmware.dfu")
     body.byteStream().use { input ->
         file.outputStream().use { output ->
@@ -1291,7 +1291,7 @@ Package: `com.feasycom.wifi.BwCommont`
 
 | Library version | Description |
 |---|---|
-| `3.6.0.0` | Current AAR version (SDK BuildConfig `3.6.0.0 / 65`). Breaking: minSdk raised to 29 (Android 10) and the public `BwNetUtils.isKitkatOrAbove()` was removed. BLE scan duration is now caller-selectable (`startScan(long timeoutMs)`), and `ScannerFilter` (RSSI threshold + device-name substring) now actually filters scan results. The demo app remains `3.5.7.5`. |
+| `3.6.0.0` | Current AAR version (SDK BuildConfig `3.6.0.0 / 65`). Breaking: minSdk raised to 29 (Android 10) and the public `BwNetUtils.isKitkatOrAbove()` was removed. BLE scan duration is now caller-selectable (`startScan(long timeoutMs)`), and `ScannerFilter` (RSSI threshold + device-name substring) now actually filters scan results. The demo app remains `3.6.0.0`. |
 | `3.5.6.4` | Previous AAR version (SDK BuildConfig `3.5.6.4 / 64`); the demo app is `3.5.7.5`. Includes BLE/SPP OTA, WiFi/BW provisioning, TCP/BW256B, and cloud firmware download. The `.so` files are 16 KB page aligned. |
 
 > For historical changes, refer to the `README.md` in the project source repository. This delivery package does not include the SDK source.

@@ -60,7 +60,7 @@ abstract class BaseActivity<VB : ViewBinding> : AppCompatActivity() {
         window.setStatusBarColor(Color.TRANSPARENT)
         val controller =
             WindowCompat.getInsetsController(window, window.getDecorView())
-        controller.setAppearanceLightStatusBars(isLightStatusBar)
+        controller?.setAppearanceLightStatusBars(isLightStatusBar)
 
         val contentView = findViewById<View?>(Window.ID_ANDROID_CONTENT)
         ViewCompat.setOnApplyWindowInsetsListener(
