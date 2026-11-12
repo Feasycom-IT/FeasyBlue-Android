@@ -3,7 +3,7 @@
 FeasyBlue 是飞易通蓝牙模块的配置、透传与升级 App。蓝牙协议与设备操作能力由 **FeasyBlueLibrary** 提供；本仓库**不包含 FeasyBlueLibrary 源码**，只以预编译 **AAR** 形式放在应用模块：
 
 ```text
-feasyblue/libs/FeasyBlueLibrary-3.5.6.4.aar
+feasyblue/libs/FeasyBlueLibrary-3.6.0.0.aar
 ```
 
 > FeasyBlue Android app source. The BLE/SPP/WiFi/TCP/OTA layer is provided by FeasyBlueLibrary as a prebuilt AAR (both `arm64-v8a` and `armeabi-v7a` native libraries are bundled inside). The SDK source is not included in this repository.
@@ -18,7 +18,7 @@ feasyblue/libs/FeasyBlueLibrary-3.5.6.4.aar
 
 - 适用系统：Android 10 及以上（`minSdk 29`）；
 - APK 为当前示例 App 的构建产物，正式发布前请核对签名和版本；
-- 当前应用版本为 `3.5.7.5`，SDK 内部 `BuildConfig.VERSION_NAME` 为 `3.5.6.4`。
+- 当前应用版本为 `3.5.7.5`，SDK 内部 `BuildConfig.VERSION_NAME` 为 `3.6.0.0`。
 
 ---
 
@@ -30,13 +30,13 @@ feasyblue/libs/FeasyBlueLibrary-3.5.6.4.aar
 
 ```text
 feasyblue/libs/
-└── FeasyBlueLibrary-3.5.6.4.aar
+└── FeasyBlueLibrary-3.6.0.0.aar
 ```
 
 AAR 内部结构：
 
 ```text
-FeasyBlueLibrary-3.5.6.4.aar
+FeasyBlueLibrary-3.6.0.0.aar
 ├── classes.jar
 ├── jni/arm64-v8a/libFeasyBlueLibrary.so
 ├── jni/armeabi-v7a/libFeasyBlueLibrary.so
@@ -46,18 +46,20 @@ FeasyBlueLibrary-3.5.6.4.aar
 
 接入方在自己的 App 中使用时，把 **这一个 AAR** 复制到 `app/libs/` 即可，不需要再单独拷贝 `.so`。
 
-当前 `FeasyBlueLibrary-3.5.6.4.aar` 校验值：
+当前 `FeasyBlueLibrary-3.6.0.0.aar` 校验值：
 
-- 大小：456,704 B
-- SHA-256：`C0D60B8CE26DCD558B2B3ED1F229929765F1D9EEA6B2CC4932C8C3E279379518`
+- 大小：456,559 B
+- SHA-256：`E332A90671D0CC040479A42C0B95823772B24E74D278FD4AAF124AA7DEDE89D5`
 - 16 KB 页对齐：已适配，两个 ABI 的 `libFeasyBlueLibrary.so` 所有 LOAD 段 `p_align = 0x4000`
+
+> **3.6.0.0 变更（破坏性）**：`minSdk` 提升到 **29（Android 10）**；移除公开方法 `BwNetUtils.isKitkatOrAbove()`（恒为 true，删掉该判断即可）；BLE 扫描时长改为可按次指定 `startScan(long timeoutMs)`，`ScannerFilter`（RSSI 阈值 + 设备名包含）现已真正生效。
 
 ### 1.2 Gradle 配置
 
 ```groovy
 android {
     defaultConfig {
-        minSdk 28
+        minSdk 29
         ndk {
             abiFilters 'arm64-v8a', 'armeabi-v7a'
         }
@@ -65,7 +67,7 @@ android {
 }
 
 dependencies {
-    implementation files('libs/FeasyBlueLibrary-3.5.6.4.aar')
+    implementation files('libs/FeasyBlueLibrary-3.6.0.0.aar')
 
     // AAR 不自带 POM，以下依赖需要接入方提供
     implementation "org.jetbrains.kotlin:kotlin-stdlib:2.0.0"
@@ -90,7 +92,7 @@ dependencies {
 
 ## 2. 编译 / Build
 
-环境要求：**Android Studio（JDK 17）**，Android SDK **API 36**，`minSdk 28`。
+环境要求：**Android Studio（JDK 17）**，Android SDK **API 36**，`minSdk 29`。
 
 ```bash
 ./gradlew :feasyblue:assembleDebug
@@ -98,7 +100,7 @@ dependencies {
 
 Windows 使用 `gradlew.bat`。
 
-如果需要重新生成 `FeasyBlueLibrary-3.5.6.4.aar`，请在包含 `FeasyBlueLibrary` 源码的项目工程中执行 `./gradlew :FeasyBlueLibrary:assembleRelease`，然后替换 `feasyblue/libs/` 下的 AAR。
+如果需要重新生成 `FeasyBlueLibrary-3.6.0.0.aar`，请在包含 `FeasyBlueLibrary` 源码的项目工程中执行 `./gradlew :FeasyBlueLibrary:assembleRelease`，然后替换 `feasyblue/libs/` 下的 AAR。
 
 ---
 
@@ -109,8 +111,8 @@ Windows 使用 `gradlew.bat`。
 | applicationId      | `com.feasycom.feasyblue`  |
 | versionName        | `3.5.7.5`                 |
 | versionCode        | `3575`                    |
-| SDK BuildConfig    | `3.5.6.4 / 64`            |
-| SDK minSdk         | `28`（Android 9）           |
+| SDK BuildConfig    | `3.6.0.0 / 65`            |
+| SDK minSdk         | `29`（Android 10）           |
 | SDK compileSdk     | `36`                      |
 | App minSdk / targetSdk | `29` / `36`           |
 | ABI                | `arm64-v8a`、`armeabi-v7a` |
@@ -141,7 +143,7 @@ Windows 使用 `gradlew.bat`。
 ├── feasyblue/
 │   ├── build.gradle
 │   ├── libs/
-│   │   └── FeasyBlueLibrary-3.5.6.4.aar
+│   │   └── FeasyBlueLibrary-3.6.0.0.aar
 │   └── src/main/...
 ├── build.gradle
 ├── settings.gradle          # 只包含 :feasyblue

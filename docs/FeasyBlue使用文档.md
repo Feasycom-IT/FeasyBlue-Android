@@ -1,10 +1,10 @@
 # FeasyBlue Android SDK 接入文档（AAR 版）
 
-> **交付物**：`FeasyBlueLibrary-3.5.6.4.aar`（内含 arm64-v8a / armeabi-v7a 的 .so）+ 示例 APK + 接入文档
+> **交付物**：`FeasyBlueLibrary-3.6.0.0.aar`（内含 arm64-v8a / armeabi-v7a 的 .so）+ 示例 APK + 接入文档
 > **交付包版本**：`3.5.7.5`
-> **SDK BuildConfig**：`3.5.6.4 / 64`
+> **SDK BuildConfig**：`3.6.0.0 / 65`
 > **包名**：`com.feasycom`
-> **最低系统版本**：Android 9（API 28）
+> **最低系统版本**：Android 10（API 29）
 > **支持 ABI**：`arm64-v8a`、`armeabi-v7a`
 > **Demo 最低版本**：Android 10（API 29）
 >
@@ -49,7 +49,7 @@ FeasyBlue-Android/
 ├── feasyblue/                     # 应用层源码
 │   ├── build.gradle
 │   ├── libs/
-│   │   └── FeasyBlueLibrary-3.5.6.4.aar   # 内含两个 ABI 的 .so
+│   │   └── FeasyBlueLibrary-3.6.0.0.aar   # 内含两个 ABI 的 .so
 │   └── src/main/...
 ├── build.gradle
 ├── settings.gradle
@@ -62,7 +62,7 @@ FeasyBlue-Android/
 
 | 文件 | 作用 |
 |---|---|
-| `feasyblue/libs/FeasyBlueLibrary-3.5.6.4.aar` | SDK 的 Java/Kotlin 类 + JNI 原生库（arm64-v8a、armeabi-v7a） |
+| `feasyblue/libs/FeasyBlueLibrary-3.6.0.0.aar` | SDK 的 Java/Kotlin 类 + JNI 原生库（arm64-v8a、armeabi-v7a） |
 | `apk/FeasyBlue3.5.7.5.apk` | 示例 APK，可直接安装体验 |
 | `README.md` | 仓库说明、APK 大小和 SHA-256 |
 | `docs/FeasyBlue使用文档.md` | 本文 |
@@ -85,7 +85,7 @@ FeasyBlue-Android/
 
 | 项 | 要求 |
 |---|---|
-| `minSdk` | ≥ 28（Android 9） |
+| `minSdk` | ≥ 29（Android 10） |
 | `compileSdk` | 36（与当前 SDK 源码一致） |
 | `targetSdk` | 36 |
 | Java/Kotlin | Java 17、Kotlin 2.0 工具链 |
@@ -94,7 +94,7 @@ FeasyBlue-Android/
 | Kotlin | AAR 内有 Kotlin 类；纯 Java 工程需要加入 `kotlin-stdlib` |
 | UI | SDK 不含 UI 和资源，界面由 App 自己实现 |
 
-> Demo 的 `minSdk` 是 29，SDK 本体是 28。接入方以自己的 `minSdk` 为准，但不要低于 28。
+> Demo 的 `minSdk` 是 29，SDK 本体也是 29。接入方以自己的 `minSdk` 为准，但不要低于 29。
 
 ---
 
@@ -107,7 +107,7 @@ FeasyBlue-Android/
 ```text
 app/
 └── libs/
-    └── FeasyBlueLibrary-3.5.6.4.aar
+    └── FeasyBlueLibrary-3.6.0.0.aar
 ```
 
 `app/build.gradle`：
@@ -115,7 +115,7 @@ app/
 ```groovy
 android {
     defaultConfig {
-        minSdk 28
+        minSdk 29
         ndk {
             abiFilters 'arm64-v8a', 'armeabi-v7a'
         }
@@ -123,7 +123,7 @@ android {
 }
 
 dependencies {
-    implementation files('libs/FeasyBlueLibrary-3.5.6.4.aar')
+    implementation files('libs/FeasyBlueLibrary-3.6.0.0.aar')
 
     // AAR 不自带 POM，以下依赖需要接入方提供
     implementation "org.jetbrains.kotlin:kotlin-stdlib:2.0.0"
@@ -1291,7 +1291,8 @@ CharSequence message;
 
 | 库版本 | 说明 |
 |---|---|
-| `3.5.6.4` | 当前 AAR 版本（SDK BuildConfig `3.5.6.4 / 64`）；示例 App 版本为 `3.5.7.5`。包含 BLE/SPP OTA、WiFi/BW 配网、TCP/BW256B、云端固件下载；`.so` 已做 16 KB 页对齐 |
+| `3.6.0.0` | 当前 AAR 版本（SDK BuildConfig `3.6.0.0 / 65`）。破坏性变更：minSdk 提升到 29（Android 10），移除公开方法 `BwNetUtils.isKitkatOrAbove()`。BLE 扫描时长改为可按次指定 `startScan(long timeoutMs)`，`ScannerFilter`（RSSI 阈值 + 设备名包含）现已真正生效。示例 App 仍为 `3.5.7.5` |
+| `3.5.6.4` | 上个 AAR 版本（SDK BuildConfig `3.5.6.4 / 64`）；示例 App 版本为 `3.5.7.5`。包含 BLE/SPP OTA、WiFi/BW 配网、TCP/BW256B、云端固件下载；`.so` 已做 16 KB 页对齐 |
 
 > 历史版本的变更请参考项目源码仓库的 `README.md` 版本记录；本交付包不包含 SDK 源码。
 
@@ -1299,7 +1300,7 @@ CharSequence message;
 
 ## 附：最小接入检查清单
 
-- [ ] `FeasyBlueLibrary-3.5.6.4.aar` 已放入 `app/libs`
+- [ ] `FeasyBlueLibrary-3.6.0.0.aar` 已放入 `app/libs`
 - [ ] 未再用 `packagingOptions` 排除 `libFeasyBlueLibrary.so`（AAR 已包含两个 ABI）
 - [ ] 未再单独拷贝 `.so`（AAR 已包含，重复拷贝会冲突）
 - [ ] `abiFilters` 只包含 `arm64-v8a`、`armeabi-v7a`

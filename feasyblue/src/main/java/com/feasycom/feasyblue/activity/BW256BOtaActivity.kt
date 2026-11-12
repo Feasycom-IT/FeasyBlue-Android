@@ -242,11 +242,7 @@ class BW256BOtaActivity : BaseActivity<ActivityBw256commOtaBinding>(), OnClickLi
     }
 
     private fun performFileSearch() {
-        val intent: Intent = if (BwNetUtils.isKitkatOrAbove()) {
-            Intent(Intent.ACTION_OPEN_DOCUMENT)
-        } else {
-            Intent(Intent.ACTION_GET_CONTENT)
-        }
+        val intent: Intent = Intent(Intent.ACTION_OPEN_DOCUMENT)
         intent.addCategory(Intent.CATEGORY_OPENABLE)
         intent.type = "application/octet-stream"
 
