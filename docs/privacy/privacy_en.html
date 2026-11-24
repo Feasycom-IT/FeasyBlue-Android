@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FeasyBlue Privacy Policy</title>
+<style>
+  body{font-family:-apple-system,"PingFang SC","Microsoft YaHei",Arial,sans-serif;line-height:1.75;color:#222;margin:16px 18px 48px;font-size:15px;background:#fff;-webkit-text-size-adjust:100%}
+  h1{font-size:20px;text-align:center;margin:8px 0 4px}
+  h2{font-size:17px;margin:26px 0 10px;padding-left:8px;border-left:4px solid #1976D2}
+  h3{font-size:15px;margin:18px 0 8px;color:#1565C0}
+  p,li{font-size:14.5px}
+  .meta{color:#777;font-size:13px;text-align:center;margin-bottom:18px}
+  table{width:100%;border-collapse:collapse;margin:10px 0 16px;font-size:13px}
+  th,td{border:1px solid #ddd;padding:7px 8px;text-align:left;vertical-align:top;word-break:break-word}
+  th{background:#eef4fb;font-weight:600}
+  .tip{background:#f7f7f7;border:1px solid #eee;border-radius:6px;padding:10px 12px;margin:12px 0;font-size:13.5px}
+  .strong{font-weight:600;color:#1565C0}
+  a{color:#1565C0;word-break:break-all}
+  ul,ol{padding-left:22px}
+  small{color:#888}
+</style>
+</head>
+<body>
+
+<h1>FeasyBlue Privacy Policy</h1>
+<div class="meta">Version V1　Updated: November 20, 2026　Effective: November 20, 2026</div>
+
+<p>Shenzhen Feasycom Technology Co., Ltd. ("we", "us") understands the importance of your personal information and is committed to protecting it. This policy explains how <strong>FeasyBlue (package name: com.feasycom.feasyblue, the "App")</strong> collects, uses, stores and protects your personal information, and the rights you have.</p>
+
+<h2>1. What the App is</h2>
+<p>The App is a <strong>local debugging and configuration tool</strong> for Bluetooth and WiFi modules: it discovers and connects to BLE / classic Bluetooth SPP / WiFi modules and gateways, reads and writes device parameters, runs transparent-transmission and throughput tests, performs firmware over-the-air updates (OTA/DFU), and scans QR codes for device information. The App <strong>has no account registration, and offers no content publishing, community, live streaming, advertising or chat features</strong>.</p>
+
+<h2>2. Information we collect and process</h2>
+
+<div class="tip">
+Any "name" used in this policy or in the App means a <strong>Bluetooth/WiFi device name, firmware file name or MQTT username</strong>; it never refers to your real name, and we never ask you to enter your name.
+</div>
+
+<table>
+<tr><th>Type</th><th>Content</th><th>Purpose</th><th>Leaves the device?</th><th>When</th></tr>
+<tr>
+  <td>Bluetooth / WiFi device information</td>
+  <td>Device name, MAC address, RSSI, advertising data, services and characteristics, pairing/connection state, device parameters</td>
+  <td>Discover, connect to, identify and configure the device you are debugging</td>
+  <td><strong>No</strong> — processed and stored locally only</td>
+  <td>When you open the device list or scan</td>
+</tr>
+<tr>
+  <td>Information you enter</td>
+  <td>Device name, PIN/password, AT commands and parameters, WiFi account details, feedback text</td>
+  <td>Configure devices, run commands and diagnose issues</td>
+  <td>Device parameters only travel between your phone and the device; feedback is uploaded over HTTPS</td>
+  <td>When you enter and submit</td>
+</tr>
+<tr>
+  <td>Feedback you voluntarily submit</td>
+  <td>Your feedback text, plus app name, version, OS version and phone model</td>
+  <td>Diagnose and fix the issue you reported</td>
+  <td><strong>Yes</strong> — submitted over HTTPS to our feedback endpoint (feasycomm.com)</td>
+  <td>When you tap "Submit"</td>
+</tr>
+<tr>
+  <td>Firmware files</td>
+  <td>Firmware file you select or download</td>
+  <td>Update device firmware</td>
+  <td>Downloaded from our firmware server; the update itself only transfers between your phone and the device</td>
+  <td>When you use the update feature</td>
+</tr>
+<tr>
+  <td>Network status</td>
+  <td>Network availability, WiFi connection state</td>
+  <td>Determine whether firmware can be downloaded and WiFi modules configured</td>
+  <td>No — used locally only</td>
+  <td>When using related features</td>
+</tr>
+</table>
+
+<h3>Product page</h3>
+<div class="tip">
+The "Product" page in the App is an embedded view of our product catalogue (www.feasycom.cn), used only to show product models and specifications. <strong>Purchases are made by phone or email using the contact details on that page.</strong> The App provides no ordering, payment, order-tracking or shipping features and <strong>does not collect order or payment information</strong>. That web page may use cookies and access logs provided by the Feasycom website.
+</div>
+<h3>Information we do NOT collect</h3>
+<div class="tip">
+The App <strong>does not collect, read or upload</strong>: IMEI, IMSI, OAID, Android ID, phone number, personal name, national ID, contacts, SMS, call logs, photos/albums, microphone recordings, installed-app list, precise location, crash logs, or any device unique identifier. It contains <strong>no advertising, analytics or push SDKs</strong>.
+</div>
+
+<p><strong>About the clipboard:</strong> the App <strong>does not collect or upload clipboard content</strong>. The clipboard is read only when you long-press a UUID input field and choose "Paste", solely to fill that field, and the content is not stored; the App writes to the clipboard only when you tap "Copy".</p>
+
+<h2>3. Our "no collection before consent" commitment</h2>
+
+<div class="tip">
+<span class="strong">Before you tap "Agree":</span>
+<ul>
+  <li>We <strong>do not initialize the Bluetooth SDK</strong>, and do not access the Bluetooth adapter or scan for devices;</li>
+  <li>We <strong>make no network requests</strong> (firmware download, feedback submission);</li>
+  <li>We <strong>do not read</strong> IMEI, IMSI, OAID, device MAC, app list or any other information (the clipboard is read only when you actively "Paste", see the section above);</li>
+  <li>We <strong>do not request</strong> Bluetooth, location, camera or WiFi permissions.</li>
+</ul>
+Only after you tap "Agree" do these features start working as described in this policy.
+</div>
+
+<h2>4. Permissions and their purposes</h2>
+
+<p>The App requests only the permissions required for the corresponding features, and only when you use them:</p>
+
+<table>
+<tr><th>Permission</th><th>Purpose</th></tr>
+<tr><td>Bluetooth scan / connect / advertise (BLUETOOTH_SCAN / CONNECT / ADVERTISE, Android 12+)</td><td>Discover, connect to and configure Bluetooth devices</td></tr>
+<tr><td>Bluetooth (BLUETOOTH / BLUETOOTH_ADMIN, Android 11 and below)</td><td>Same as above (legacy compatibility)</td></tr>
+<tr><td>Location (ACCESS_COARSE_LOCATION / ACCESS_FINE_LOCATION)</td><td>Required by Android for BLE/WiFi scanning. <strong>The App does not read or upload your location</strong></td></tr>
+<tr><td>Nearby Wi-Fi devices (NEARBY_WIFI_DEVICES), WiFi state and change</td><td>Discover and configure WiFi modules, WiFi transparent transmission</td></tr>
+<tr><td>Camera (CAMERA)</td><td>Scan device QR codes</td></tr>
+<tr><td>Write external storage (WRITE_EXTERNAL_STORAGE, Android 12 and below only)</td><td>Save firmware files to the phone's Download folder</td></tr>
+<tr><td>Network (INTERNET / ACCESS_NETWORK_STATE / CHANGE_NETWORK_STATE)</td><td>Download firmware, submit feedback</td></tr>
+</table>
+
+<div class="tip">
+The App <strong>does not request</strong> microphone, contacts, SMS, photo-library reading, background location or boot auto-start permissions.
+</div>
+
+<h2>5. Third-party components</h2>
+
+<p>The App uses the following open-source components, none of which collect personal information:</p>
+
+<table>
+<tr><th>Component</th><th>Source</th><th>Purpose</th></tr>
+<tr><td>OkHttp / Retrofit / Gson</td><td>Open source</td><td>HTTPS requests and data parsing</td></tr>
+<tr><td>Glide</td><td>Open source</td><td>Local image loading</td></tr>
+<tr><td>LitePal / Room</td><td>Open source / Google</td><td>Local device model table and device records</td></tr>
+<tr><td>XXPermissions / DeviceCompat</td><td>Open source (getActivity)</td><td>Permission requests and OS compatibility</td></tr>
+<tr><td>AndroidX / Material / Kotlin coroutines</td><td>Google / JetBrains</td><td>App framework</td></tr>
+<tr><td>utilcodex / SmartRefreshLayout and other UI components</td><td>Open source</td><td>Local UI and utility methods</td></tr>
+</table>
+
+<h2>6. How we store and protect information</h2>
+<ul>
+  <li><strong>Location of storage:</strong> Device records, parameters, QR images and firmware files are stored only on your phone; feedback is transmitted to our server over HTTPS.</li>
+  <li><strong>Retention:</strong> Local data is deleted when you uninstall the App or clear its data; feedback is used only to diagnose issues and deleted per company policy after handling.</li>
+  <li><strong>Security:</strong> We use access control and transport encryption (HTTPS); however, no Internet environment is absolutely secure.</li>
+  <li><strong>Exceptions:</strong> We may provide information where required by law or by competent authorities.</li>
+</ul>
+
+<h2>7. Sharing, transfer and public disclosure</h2>
+<ul>
+  <li><strong>Sharing:</strong> Apart from feedback you voluntarily submit (uploaded to our own feedback endpoint), we <strong>do not share</strong> your personal information with any third party.</li>
+  <li><strong>Transfer:</strong> No transfer, except in the event of a merger or separation, in which case the recipient remains bound by this policy.</li>
+  <li><strong>Public disclosure:</strong> None, except as required by law or with your separate consent.</li>
+  <li><strong>Cross-border transfer:</strong> We do not transfer your personal information outside your country/region.</li>
+</ul>
+
+<h2>8. Auto-start and broadcast receivers</h2>
+<div class="tip">
+<ul>
+  <li>The App <strong>does not listen for BOOT_COMPLETED</strong> and <strong>cannot auto-start, be launched by other apps, or pull itself up in the background</strong>;</li>
+  <li>The App <strong>declares no static broadcast receivers</strong> in its manifest;</li>
+  <li>Only while you are actively scanning, the App <strong>temporarily</strong> registers system Bluetooth/network state broadcasts (to receive discovery, scan-finished and pairing-state events). The receiver is <strong>unregistered immediately</strong> when scanning stops or you leave the page, so nothing is monitored in the background.</li>
+</ul>
+</div>
+
+<h2>9. Your rights</h2>
+<ul>
+  <li><strong>Access and correction:</strong> You can view device records and parameters in the App; contact us for correction.</li>
+  <li><strong>Deletion:</strong> You can delete device records in the App, or clear app data/uninstall the App to delete all local data.</li>
+  <li><strong>Withdraw consent:</strong> Clear app data or uninstall the App. <strong>After withdrawal we will no longer initialize the Bluetooth SDK or make network requests.</strong> Withdrawal does not affect processing carried out before it.</li>
+  <li><strong>Account deletion:</strong> The App has no accounts, so no account deletion is needed.</li>
+  <li><strong>Complaints:</strong> Contact us using the details below; we will respond within 15 business days.</li>
+</ul>
+
+<h2>10. Protection of minors</h2>
+<p>The App is intended for enterprise users and technicians. If you are under 14, please read this policy with your guardian and use the App only with their consent. We do not knowingly collect personal information from minors and will delete it promptly if discovered.</p>
+
+<h2>11. Changes to this policy</h2>
+<p>We may update this policy. Material changes will be presented in a dialog at app start to obtain your consent again, and significant changes (purposes, data types, sharing recipients) will be notified prominently. The version number is shown under the title.</p>
+
+<h2>12. Contact us</h2>
+<p>Developer: Shenzhen Feasycom Technology Co., Ltd.<br>
+Address: Building A, Phoenix Zhigu, No. 50 Tiezai Road, Gongle Community, Xixiang Street, Bao'an District, Shenzhen, Guangdong, China<br>
+Email: <a href="mailto:sales@feasycom.com">sales@feasycom.com</a><br>
+Website: <a href="https://www.feasycom.cn/">https://www.feasycom.cn/</a></p>
+
+<p><small>This policy is effective from November 20, 2026, version V1. If the Chinese and English versions differ, the Chinese version prevails.</small></p>
+
+</body>
+</html>
