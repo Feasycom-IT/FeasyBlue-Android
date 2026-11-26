@@ -91,7 +91,6 @@ class AdvancedSettingsListActivity : BaseActivity<ActivityAdvancedSettingsListBi
             val clipData = clipboardManager.primaryClip
             if (clipData != null && clipData.itemCount > 0) {
                 val copiedText = clipData.getItemAt(0).text
-                Log.e("TAG", "copiedText => $copiedText")
                 // 处理 32 位 UUID 文本自动拆分填充
                 if (copiedText.length == 32) {
                     val editTexts = listOf(

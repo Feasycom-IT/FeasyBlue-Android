@@ -142,7 +142,9 @@ class CommunicationFragment : BaseFragment<FragmentCommunicationBinding>(), View
                 binding.sppCheck.visibility = View.GONE
             }
 
-            else -> binding.sppCheck.isChecked = true
+            else -> {
+                binding.bleCheck.isChecked = true
+            }
         }
 
         mDeviceAdapter = DeviceAdapter(devices)
@@ -290,8 +292,83 @@ class CommunicationFragment : BaseFragment<FragmentCommunicationBinding>(), View
     }
 
 
-    private var bleCallbackInited = true
-    private var sppCallbackInited = true
+    // ---------------- 扫描观察者 ----------------
+    // SDK 的 setCallbacks 是"单回调"语义（连接/数据事件需要唯一属主），
+    // 但扫描结果允许多页面同时观察。这里改用 addScanObserver 注册，
+    // 避免主界面与各搜索页（OTA / 参数修改 / WiFi）互相覆盖回调。
+
+    private val bleScanObserver = object : FscBleCentralCallbacksImp() {
+        override fun blePeripheralFound(
+            bleDevice: FscDevice,
+            rssi: Int,
+            record: ByteArray?
+        ) {
+            runOnUiThreadSafe {
+                safeUiAction {
+                    if (binding.bleCheck?.isChecked == true) {
+                        uiFoundDevice(bleDevice)
+                    }
+                }
+            }
+        }
+
+        override fun stopScan() {
+            runOnUiThreadSafe {
+                safeUiAction {
+                    if (binding.bleCheck?.isChecked == true) {
+                        uiStopScan()
+                    }
+                }
+            }
+        }
+    }
+
+    private val sppScanObserver = object : FscSppCentralCallbacksImp() {
+        override fun sppPeripheralFound(sppDevice: FscDevice, rssi: Int) {
+            runOnUiThreadSafe {
+                safeUiAction {
+                    if (binding.sppCheck?.isChecked == true) {
+                        uiFoundDevice(sppDevice)
+                    }
+                }
+            }
+        }
+
+        override fun stopScan() {
+            runOnUiThreadSafe {
+                safeUiAction {
+                    if (binding.sppCheck?.isChecked == true) {
+                        uiStopScan()
+                    }
+                }
+            }
+        }
+    }
+
+    // 用于"复位"SDK 回调：不用 null，避免已连接设备的 Kotlin 非空参数校验抛异常
+    private val neutralBleCallbacks = object : FscBleCentralCallbacksImp() {}
+    private val neutralSppCallbacks = object : FscSppCentralCallbacksImp() {}
+
+    /** 保证 UI 操作在主线程执行（SPP 的扫描通知来自广播线程） */
+    private fun runOnUiThreadSafe(action: () -> Unit) {
+        if (Looper.myLooper() == Looper.getMainLooper()) {
+            action()
+        } else {
+            view?.post { action() }
+        }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        mFscBleCentralApi.addScanObserver(bleScanObserver)
+        sFscSppCentralApi.addScanObserver(sppScanObserver)
+    }
+
+    override fun onStop() {
+        mFscBleCentralApi.removeScanObserver(bleScanObserver)
+        sFscSppCentralApi.removeScanObserver(sppScanObserver)
+        super.onStop()
+    }
 
     @SuppressLint("NotifyDataSetChanged")
     override fun onResume() {
@@ -316,95 +393,16 @@ class CommunicationFragment : BaseFragment<FragmentCommunicationBinding>(), View
                 }
             }
 
-            if (bleCallbackInited) {
-                bleCallbackInited = true
-                // 修复BLE回调：使用可空Binding + 状态检查
-                mFscBleCentralApi.setCallbacks(object : FscBleCentralCallbacksImp() {
-                    override fun blePeripheralFound(
-                        bleDevice: FscDevice,
-                        rssi: Int,
-                        record: ByteArray?
-                    ) {
-                        super.blePeripheralFound(bleDevice, rssi, record)
-                        safeUiAction {
-                            // 核心修复2：使用可空Binding判断选中状态
-                            if (binding.bleCheck?.isChecked == true) {
-
-                                uiFoundDevice(bleDevice)
-
-                            }
-                        }
-
-                    }
-
-                    override fun startScan() {
-                        super.startScan()
-
-                    }
-
-                    override fun stopScan() {
-                        super.stopScan()
-                        safeUiAction {
-                            val nullableBinding = getNullableBinding()
-                            if (nullableBinding != null && nullableBinding.bleCheck?.isChecked == true) {
-                                uiStopScan()
-                            }
-                        }
-                    }
-                })
-            }
-
-
-            if (sppCallbackInited) {
-                sppCallbackInited = true
-                // 修复SPP回调：同样使用可空Binding + 状态检查
-                sFscSppCentralApi.setCallbacks(object : FscSppCentralCallbacksImp() {
-                    override fun sppPeripheralFound(sppDevice: FscDevice, rssi: Int) {
-                        super.sppPeripheralFound(sppDevice, rssi)
-
-                        safeUiAction {
-                            if (binding.sppCheck?.isChecked == true) {
-                                uiFoundDevice(sppDevice)
-                            }
-                        }
-                    }
-
-                    override fun startScan() {
-                        super.startScan()
-
-                    }
-
-                    override fun stopScan() {
-                        super.stopScan()
-                        safeUiAction {
-                            val nullableBinding = getNullableBinding()
-                            if (nullableBinding != null && nullableBinding.sppCheck?.isChecked == true) {
-                                uiStopScan()
-                            }
-                        }
-
-                    }
-
-                    override fun sppPeripheralConnected(
-                        device: BluetoothDevice,
-                        connectType: ConnectType
-                    ) {
-                        safeUiAction {
-                            stopScan()
-                            // 修复：使用requireContext()而非activity，避免空指针
-                            ThroughputActivity.activityStart(requireContext(), device)
-                        }
-                    }
-                })
-            }
+            // 清掉可能残留的回调（上一个页面已销毁但未清理），
+            // 本页只通过观察者接收扫描事件，不占用 setCallbacks。
+            mFscBleCentralApi.setCallbacks(neutralBleCallbacks)
+            sFscSppCentralApi.setCallbacks(neutralSppCallbacks)
 
             binding.smartRefreshLayout.autoRefresh()
-
         } else if (checkEnvironment() == -3) {
             binding.tipsRl.visibility = View.VISIBLE
         }
     }
-
     private fun requestPermissions() {
         XXPermissions.with(this)
             .permission(PermissionLists.getAccessFineLocationPermission())
@@ -449,7 +447,9 @@ class CommunicationFragment : BaseFragment<FragmentCommunicationBinding>(), View
             }
 
             R.id.toolbarImageButton -> {
-                MainActivity.activityStart(requireContext(), 1)
+                // 直接关闭当前页返回上一页。
+                // 不再 startActivity(MainActivity)：MainActivity 是 singleTask，
+                // 那样会跳过中间页面（例如"更多设置"），且 position 参数不会生效。
                 requireActivity().finish()
             }
 
@@ -492,19 +492,19 @@ class CommunicationFragment : BaseFragment<FragmentCommunicationBinding>(), View
 
     private fun checkEnvironment(): Int {
         if (!PermissionUtil.hasRequiredPermissions(requireContext())) {
-            binding.tipsRl.visibility = View.VISIBLE
+            getNullableBinding()?.tipsRl?.visibility = View.VISIBLE
             return -3
         }
-        binding.tipsRl.visibility = View.GONE
+        getNullableBinding()?.tipsRl?.visibility = View.GONE
         return 0
     }
-
     private fun startScan() {
         if (!PermissionUtil.hasRequiredPermissions(requireContext())) {
             return
         }
         try {
-            if (binding.bluetooth.visibility == View.VISIBLE || binding.gps.visibility == View.VISIBLE) {
+            val bind = getNullableBinding() ?: return
+            if (bind.bluetooth.visibility == View.VISIBLE || bind.gps.visibility == View.VISIBLE) {
                 return
             }
             uiStartScan()
@@ -513,7 +513,7 @@ class CommunicationFragment : BaseFragment<FragmentCommunicationBinding>(), View
             mFscBleCentralApi.stopScan()
             mHandler.removeCallbacks(mScanSppRunnable)
             mHandler.removeCallbacks(mScanBleRunnable)
-            if (binding.headerRightLL.checkedRadioButtonId == R.id.bleCheck) {
+            if (bind.headerRightLL.checkedRadioButtonId == R.id.bleCheck) {
                 LogUtils.e(TAG, "APP BLE startScan: ble扫描.")
                 mHandler.postDelayed(mScanBleRunnable, 200)
 
@@ -528,7 +528,6 @@ class CommunicationFragment : BaseFragment<FragmentCommunicationBinding>(), View
             LogUtils.e(TAG, "扫描. erro: ${e.toString()}")
         }
     }
-
     private val mScanBleRunnable = Runnable {
         mFscBleCentralApi.startScan()
     }
@@ -539,7 +538,11 @@ class CommunicationFragment : BaseFragment<FragmentCommunicationBinding>(), View
 
     private fun stopScan() {
         try {
-            if (binding.bluetooth.visibility == View.VISIBLE || binding.gps.visibility == View.VISIBLE) {
+            // 取消还没执行的延迟启动，避免页面 pause 后 200ms 又偷偷开始扫描
+            mHandler.removeCallbacks(mScanBleRunnable)
+            mHandler.removeCallbacks(mScanSppRunnable)
+            val bind = getNullableBinding() ?: return
+            if (bind.bluetooth.visibility == View.VISIBLE || bind.gps.visibility == View.VISIBLE) {
                 return
             }
             sFscSppCentralApi.stopScan()
@@ -549,7 +552,6 @@ class CommunicationFragment : BaseFragment<FragmentCommunicationBinding>(), View
             LogUtils.e(TAG, "stopScan. erro: ${e.toString()}")
         }
     }
-
     // 全局定义一个原生进度圈
     private var mProgressDialog: android.app.ProgressDialog? = null
 
@@ -574,7 +576,7 @@ class CommunicationFragment : BaseFragment<FragmentCommunicationBinding>(), View
                 if (isAdded) {
                     mProgressDialog?.dismiss()
                 }
-            }, 2000)
+            }, 1000)
         }
     }
 
@@ -625,53 +627,73 @@ class CommunicationFragment : BaseFragment<FragmentCommunicationBinding>(), View
 
     private val mLocationProviderChangedReceiver: BroadcastReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context, intent: Intent) {
+            if (!isAdded) return
             val enabled: Boolean = isLocationEnabled(requireContext())
             if (enabled) {
                 stopScan()
             }
-            binding.gps.visibility = if (enabled) View.GONE else View.VISIBLE
+            getNullableBinding()?.gps?.visibility = if (enabled) View.GONE else View.VISIBLE
         }
     }
 
     private val mBluetoothStateBroadcastReceiver: BroadcastReceiver = object : BroadcastReceiver() {
         override fun onReceive(context: Context, intent: Intent) {
+            if (!isAdded) return
             val state = intent.getIntExtra(BluetoothAdapter.EXTRA_STATE, BluetoothAdapter.STATE_OFF)
             val previousState = intent.getIntExtra(
                 BluetoothAdapter.EXTRA_PREVIOUS_STATE, BluetoothAdapter.STATE_OFF
             )
             when (state) {
                 BluetoothAdapter.STATE_ON -> {
-                    // 记录一下，这里添加了stopScan()代码是因为关闭了蓝牙刷新界面后，再重新打开蓝牙没有数据
+                    // 关闭蓝牙再打开后需要停一次扫描，否则列表不再刷新
                     stopScan()
-                    binding.bluetooth.visibility = View.GONE
+                    getNullableBinding()?.bluetooth?.visibility = View.GONE
                 }
 
                 BluetoothAdapter.STATE_TURNING_OFF, BluetoothAdapter.STATE_OFF -> if (previousState != BluetoothAdapter.STATE_TURNING_OFF && previousState != BluetoothAdapter.STATE_OFF) {
                     stopScan()
-                    binding.bluetooth.visibility = View.VISIBLE
+                    getNullableBinding()?.bluetooth?.visibility = View.VISIBLE
                 }
             }
         }
     }
 
+    private var receiversRegistered = false
+
     private fun registerBroadcastReceivers() {
-        requireContext().registerReceiver(
-            mBluetoothStateBroadcastReceiver, IntentFilter(BluetoothAdapter.ACTION_STATE_CHANGED)
-        )
-        if (isMarshmallowOrAbove()) {
+        if (receiversRegistered || !isAdded) {
+            return
+        }
+        try {
             requireContext().registerReceiver(
-                mLocationProviderChangedReceiver, IntentFilter(LocationManager.MODE_CHANGED_ACTION)
+                mBluetoothStateBroadcastReceiver, IntentFilter(BluetoothAdapter.ACTION_STATE_CHANGED)
             )
+            if (isMarshmallowOrAbove()) {
+                requireContext().registerReceiver(
+                    mLocationProviderChangedReceiver, IntentFilter(LocationManager.MODE_CHANGED_ACTION)
+                )
+            }
+            receiversRegistered = true
+        } catch (e: Exception) {
+            LogUtils.e(TAG, "registerBroadcastReceivers error: ${e.message}")
         }
     }
 
     private fun unregisterBroadcastReceivers() {
-        requireContext().unregisterReceiver(mBluetoothStateBroadcastReceiver)
-        if (isMarshmallowOrAbove()) {
-            requireContext().unregisterReceiver(mLocationProviderChangedReceiver)
+        if (!receiversRegistered || !isAdded) {
+            return
+        }
+        try {
+            requireContext().unregisterReceiver(mBluetoothStateBroadcastReceiver)
+            if (isMarshmallowOrAbove()) {
+                requireContext().unregisterReceiver(mLocationProviderChangedReceiver)
+            }
+        } catch (e: Exception) {
+            LogUtils.e(TAG, "unregisterBroadcastReceivers error: ${e.message}")
+        } finally {
+            receiversRegistered = false
         }
     }
-
 
     override fun onPause() {
         super.onPause()
@@ -681,6 +703,14 @@ class CommunicationFragment : BaseFragment<FragmentCommunicationBinding>(), View
         stopScan()
     }
 
+    override fun onDestroyView() {
+        // 视图销毁时停扫并清理弹窗/广播，避免回调继续操作已销毁的 binding
+        stopScan()
+        mProgressDialog?.takeIf { it.isShowing }?.dismiss()
+        mProgressDialog = null
+        unregisterBroadcastReceivers()
+        super.onDestroyView()
+    }
 
     override fun onDestroy() {
         super.onDestroy()
@@ -688,7 +718,6 @@ class CommunicationFragment : BaseFragment<FragmentCommunicationBinding>(), View
         BluetoothRepository.unRegisterViewCallback(this)
         mHandler.removeCallbacksAndMessages(null)
     }
-
     companion object {
         private const val TAG = "CommunicationFragment"
 

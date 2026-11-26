@@ -26,9 +26,8 @@
     <!--footer-->
     <string name="communication">通讯</string>
     <string name="setting">设置</string>
-    <string name="about">关于</string>
     <string name="product">产品</string>
-    <string name="forum">论坛</string>
+    <string name="about">关于</string>
     <string name="aboutcompany">公司介绍</string>
     <!--search device activity-->
     <string name="search">搜索</string>
@@ -40,7 +39,7 @@
     <string name="sort">排序</string>
     <string name="filter">过滤</string>
     <string name="filter_by_rssi">RSSI过滤阈值:</string>
-    <string name="filter_by_name">名字过滤</string>
+    <string name="filter_by_name">按设备名称过滤</string>
     <string name="minimum_rssi">过滤阈值</string>
 
 
@@ -96,7 +95,7 @@
     <string name="company">公司</string>
     <!--TODO 深圳市飞易通科技有限公司 -->
     <string name="company_name">深圳市飞易通科技有限公司</string>
-    <string name="company_deta">飞易通是一家专注于物联网无线模块和产品的国家级高新技术企业。经过十几年无线通讯行业的技术沉淀，飞易通在为客户提供低风险产品开发、降低系统集成成本和缩短产品开发周期方面拥有丰富的经验和强大支持能力。目前飞易通产品远销欧美日韩印等国家，出货客户已有几千家以上，累计出货量达到上亿个。
+    <string name="company_deta">飞易通是一家专注于物联网无线模块和产品的技术企业。经过十几年无线通讯行业的技术沉淀，飞易通在为客户提供低风险产品开发、降低系统集成成本和缩短产品开发周期方面拥有丰富的经验和强大支持能力。目前飞易通产品远销欧美日韩印等国家，出货客户已有几千家以上，累计出货量达到上亿个。
         \n\n创新的物联网产品——飞易通以技术创新为核心驱动力，提供多样化的特色产品，包括蓝牙模块、Wi-Fi蓝牙组合模块、CAT-M模块、BLE信标、网关、蓝牙/Wi-Fi适配器、天线及RFID系列等。此外，飞易通还为这些硬件产品配套提供物联网云服务（飞易云）、支持安卓和iOS的APP及SDK等解决方案。</string>
     <!--TODO 长沙市飞易通科技有限公司 -->
 <!--    <string name="company_name">长沙市飞易通科技有限公司</string>-->
@@ -217,8 +216,6 @@
     <string name="feedback_cooperation">合作</string>
     <string name="feedback_submit">提交</string>
     <string name="feedback_data_error">请输入反馈问题。</string>
-    <string name="feedback_email">请输入您的邮箱</string>
-    <string name="feedback_email_erro">请输入正确的邮箱.</string>
     <string name="feedback_status">正在发送反馈内容&#8230;</string>
     <string name="feedback_success">反馈成功</string>
     <string name="feedback_failure">反馈失败</string>
@@ -364,7 +361,6 @@
     <string name="spp_auto_connect_test">SPP自动连接测试</string>
     <string name="ble_auto_connect_test">BLE自动连接测试</string>
     <string name="permission_camera_record">相机和录音权限是拍照、相册、语音必须的权限</string>
-    <string name="developer_debug">开发者调试</string>
     <string name="facp_switch">Facp</string>
     <string name="debug_log">调试日志</string>
     <string name="send_new_line">发送新行</string>
@@ -392,7 +388,7 @@
     <string name="tcp_client_connected">TCP客户端已连接</string>
     <string name="tcp_client_disconnected">TCP客户端已断开</string>
     <string name="and">和</string>
-    <string name="userAndPrivacyResume"><![CDATA[感谢您信任并使用FeasyBlue，在您使用扫描蓝牙设备服务时，我们可能需要开启定位权限，读取位置信息、读取附近的设备来体验相关功能。 客户端在空中升级和批量空中升级页面下载固件、访问商城页面、反馈页面过程中需联网，联网产生的流量费请咨询当地运营商。 在您使用商城->在线咨询->拍照、相册、语音通话服务时，我们会申请开启相机、开启麦克风权限。当您在关于->保存二维码图片时会申请存储空间权限。 详细条款请参考《FeasyBlue用户使用协议》和《FeasyBlue隐私政策》。]]></string>
+    <string name="userAndPrivacyResume"><![CDATA[感谢您信任并使用 FeasyBlue。点击“同意”后，为向您提供蓝牙/WiFi 模块调试与配置功能，我们会在您使用对应功能时处理以下信息：① 蓝牙/WiFi 设备信息（设备名称、MAC 地址、信号强度、广播与特征数据、连接与配对状态），仅保存在本机用于识别和连接设备，不上传；② 您主动输入的内容（设备名称、PIN/密码、AT 指令与参数、WiFi 账号信息、意见反馈文字），用于配置设备、执行指令和定位问题，其中意见反馈经 HTTPS 提交至我们的服务器；③ 相机，仅用于扫描设备二维码，不保存、不上传照片；④ 网络状态，用于固件下载与 WiFi 模块连接。我们不会收集您的姓名、身份证号、手机号、通讯录、短信、相册、麦克风、IMEI/IMSI/OAID/Android ID、已安装应用列表等信息，也不会读取或上传您的位置；仅在您主动粘贴时读取剪贴板用于填充输入框，不会保存或上传；不监听开机广播，不具备自启动或关联启动能力。界面中的“名称”均指设备名称或文件名，并非您的姓名。详细条款请阅读《FeasyBlue 用户协议》和《FeasyBlue 隐私政策》。]]></string>
     <string name="stopTest">停止</string>
     <string name="select_file">选择文件</string>
     <string name="ota_scan_failed_device">扫描到升级失败的设备 %1$s</string>
@@ -451,7 +447,6 @@
     <string name="app_ver">APP版本: </string>
     <string name="sdk_ver">SDK版本: </string>
     <string name="contact_us">联系我们</string>
-    <string name="contact_you">联系邮箱</string>
     <string name="wifi_mode">wifi模式</string>
     <string name="serial_port_mode">串口模块</string>
     <string name="wait">请等待...</string>

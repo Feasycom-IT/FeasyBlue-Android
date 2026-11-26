@@ -26,9 +26,8 @@
     <!--footer-->
     <string name="communication">Communication</string>
     <string name="setting">Setting</string>
-    <string name="about">About</string>
     <string name="product">Product</string>
-    <string name="forum">Forum</string>
+    <string name="about">About</string>
     <string name="aboutcompany">Company Introduction</string>
     <!--search device activity-->
     <string name="search">Search</string>
@@ -40,7 +39,7 @@
     <string name="sort">Sort</string>
     <string name="filter">Filter</string>
     <string name="filter_by_rssi">RSSI filtering threshold:</string>
-    <string name="filter_by_name">Name filtering</string>
+    <string name="filter_by_name">Filter by device name</string>
     <string name="minimum_rssi">Filter threshold</string>
 
 
@@ -95,7 +94,7 @@
     <!--TODO 深圳市飞易通科技有限公司-->
     <string name="company_name">Shenzhen Feasycom Technology Co.,Ltd</string>
 
-    <string name="company_deta">Feasycom is a national high-tech enterprise focused on IoT wireless modules and solutions. With over a decade of experience in wireless communication, Feasycom helps customers achieve low-risk development, lower integration costs, and faster time-to-market. Its products are exported to Europe, North America, Japan, India, and beyond, serving thousands of clients with shipments exceeding 100 million units.
+    <string name="company_deta">Feasycom is a technology company focused on IoT wireless modules and solutions. With over a decade of experience in wireless communication, Feasycom helps customers achieve low-risk development, lower integration costs, and faster time-to-market. Its products are exported to Europe, North America, Japan, India, and beyond, serving thousands of clients with shipments exceeding 100 million units.
         \n\nInnovative IoT Solutions — Driven by technology and innovation, Feasycom offers a wide range of products, including BT modules, Wi-Fi &amp; BT combo modules, CAT-M modules, BLE beacons, gateways, BT/Wi-Fi adapters, antennas, and RFID series. Supporting services include FeasyCloud IoT platform, Android &amp; iOS apps, SDKs, and customized solutions.</string>
 
     <!--TODO 长沙市飞易通科技有限公司 -->
@@ -142,11 +141,7 @@
     <string name="feedback">Feedback</string>
     <string name="feedbacktype">Feedback Type</string>
 
-    <string name="feedback_email">Please enter your email.</string>
-    <string name="feedback_email_erro">Please enter the correct email address.</string>
-
     <string name="description">Description</string>
-    <string name="contact_you">Email</string>
     <!--parameterModify-->
     <string name="begin">Begin</string>
     <string name="deviceName">AT+NAME=</string>
@@ -368,7 +363,6 @@
     <string name="spp_auto_connect_test">SPP automatic connection test</string>
     <string name="ble_auto_connect_test">BLE automatic connection test</string>
     <string name="permission_camera_record">Camera and recording permissions are necessary permissions for taking photos, albums, and voice recordings</string>
-    <string name="developer_debug">Developer debug</string>
     <string name="facp_switch">Facp</string>
     <string name="debug_log">Debug log</string>
     <string name="send_new_line">Send nl</string>
@@ -396,7 +390,7 @@
     <string name="tcp_client_connected">TCP client connected</string>
     <string name="tcp_client_disconnected">TCP client disconnected</string>
     <string name="and">and</string>
-    <string name="userAndPrivacyResume"><![CDATA[Thank you for trusting and using FeasyBlue. When using the Scan Bluetooth device service, we may need to enable location permissions, read location information, and read nearby devices to experience the relevant functions. The client needs to be connected to the internet during the process of downloading firmware, accessing the mall page, and providing feedback on the air upgrade and batch air upgrade pages. Please consult your local operator for any traffic fees incurred from the connection. When you use the shopping mall ->online consultation ->photography, album, and voice call services, we will apply to enable camera and microphone permissions. You will apply for storage space permission when saving QR code images in About ->. Please refer to the FeasyBlue User Agreement and FeasyBlue Privacy Policy for detailed terms.]]></string>
+    <string name="userAndPrivacyResume"><![CDATA[Thank you for using FeasyBlue. After you tap "Agree", to provide Bluetooth/WiFi module debugging and configuration we process the following information only when you use the related features: (1) Bluetooth/WiFi device information (device name, MAC address, RSSI, advertising/service data, connection and pairing state), stored only on your phone to identify and connect devices and never uploaded; (2) information you enter (device name, PIN/password, AT commands and parameters, WiFi account details, feedback text), used to configure devices, run commands and diagnose issues, where feedback is submitted to our server over HTTPS; (3) camera, used only to scan device QR codes, with no photos stored or uploaded; (4) network status, used for firmware download and WiFi module connection. We do not collect your name, national ID, phone number, contacts, SMS, photos, microphone, IMEI/IMSI/OAID/Android ID or installed-app list, and we never read or upload your location; the clipboard is read only when you actively paste, to fill an input field, and is never stored or uploaded. We do not listen for boot broadcasts or auto-start. Any "name" shown in the app means a device name or file name, not your personal name. See the FeasyBlue User Agreement and FeasyBlue Privacy Policy for details.]]></string>
     <string name="stopTest">Stop</string>
     <string name="select_file">Select File</string>
     <string name="ota_scan_failed_device">Scan to upgrade failed devices %1$s</string>

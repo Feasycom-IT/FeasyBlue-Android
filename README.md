@@ -14,7 +14,7 @@ feasyblue/libs/FeasyBlueLibrary-3.6.0.9.aar
 
 | 版本        | 文件                                                   | 大小                        | SHA-256                                                            |
 | --------- | ---------------------------------------------------- | ------------------------- | ------------------------------------------------------------------ |
-| `3.6.1.2` | [apk/FeasyBlue3.6.1.2_2026-11-23.apk](apk/FeasyBlue3.6.1.2_2026-11-23.apk) | 16,682,920 B（约 15.91 MiB） | `22901CCF46497A1BB6CE455D670E09A8356264180AD7910A61E9EA3A4E9D810E` |
+| `3.6.1.2` | [apk/FeasyBlue3.6.1.2_2026-11-26.apk](apk/FeasyBlue3.6.1.2_2026-11-26.apk) | 16,682,920 B（约 15.91 MiB） | `98AC65B988A25F298F189D9F01493627A6ACBD3A6F2F49219BB73C4D58DEBFFA` |
 
 - 适用系统：Android 10 及以上（`minSdk 29`）；
 - APK 为当前示例 App 的构建产物，正式发布前请核对签名和版本；
@@ -48,11 +48,11 @@ FeasyBlueLibrary-3.6.0.9.aar
 
 当前 `FeasyBlueLibrary-3.6.0.9.aar` 校验值：
 
-- 大小：447,107 B
-- SHA-256：`A3A8A02FF0FF582ABB39CE935D7A70B4C40E7A64786450DB9E0B4B0EB6DEF9A3`
+- 大小：447,616 B
+- SHA-256：`89174CCB6C388DD4900AB753926F341D015341CD11D643360F896547743B6AA4`
 - 16 KB 页对齐：已适配，两个 ABI 的 `libFeasyBlueLibrary.so` 所有 LOAD 段 `p_align = 0x4000`
 
-> **3.6.0.9 变更**：SPP 扫描不再把已配对的 BLE 设备混入结果（`startScan` / `getBondDevices` 过滤 `DEVICE_TYPE_LE`，`ACTION_FOUND` 排除 LE 与"类型未知且无设备类"的设备）；AAR 公开 API 无破坏性变更。
+> **3.6.0.9 变更**：SPP 扫描不再把已配对的 BLE 设备混入结果（`startScan` / `getBondDevices` 过滤 `DEVICE_TYPE_LE`，`ACTION_FOUND` 排除 LE 设备）；修复 Android 13+ 收不到经典蓝牙发现广播的问题（扫描期间使用 `RECEIVER_EXPORTED` 注册接收器，停止扫描立即注销）；AAR 公开 API 无破坏性变更。
 
 > **3.6.0.0 变更（破坏性）**：`minSdk` 提升到 **29（Android 10）**；移除公开方法 `BwNetUtils.isKitkatOrAbove()`（恒为 true，删掉该判断即可）；BLE 扫描时长改为可按次指定 `startScan(long timeoutMs)`，`ScannerFilter`（RSSI 阈值 + 设备名包含）现已真正生效。
 
